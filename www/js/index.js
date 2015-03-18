@@ -2,16 +2,25 @@
 /* Rendering dynamic content */
 /*---------------------------*/
 
-document.addEventListener("deviceready", onDeviceReady, false);
+if (document != undefined) {
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
 var isMain = false;
 var isPlaying = false;
 
 function onDeviceReady() {
 	uiListener();
-	cordova.exec(null, null, "SplashScreen", "hide", []);
+	// Android back button
 	document.addEventListener("backbutton", backButton, false);
+	// if we need to compensate for iOS status bar
+	if (window.device.platform.toLowerCase() == "ios" && parseFloat(window.device.version) >= 7.0) {
+		document.getElementById("header").style["padding-top"] = "20px";
+		document.getElementById("content").style["margin-top"] = "120px";
+  }
+	cordova.exec(null, null, "SplashScreen", "hide", []);
 }
 
+// handles Android backbutton event
 function backButton() {
 	if(isMain){
 		if(isPlaying){
