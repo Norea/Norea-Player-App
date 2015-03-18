@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.noreasverige.norea" version="15.3.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Norea</name>
+    <description>
+        En spelare för Norea Sveriges programserier.
+    </description>
+    <author email="norea@noreasverige.se" href="http://www.noreasverige.se">
+        Norea Sverige
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="auto-hide-splash-screen" value="false" />
+
+    <platform name="ios">
+      <icon src="res/ios/icon.png" width="57" height="57" />
+      <icon src="res/ios/icon@2x.png" width="114" height="114" />
+      <icon src="res/ios/icon-small.png" width="29" height="29" />
+      <icon src="res/ios/icon-small@2x.png" width="58" height="58" />
+      <icon src="res/ios/icon-40@2x.png" width="80" height="80" />
+      <icon src="res/ios/icon-60@2x.png" width="120" height="120" />
+      <icon src="res/ios/icon-60@3x.png" width="180" height="180" />
+      <icon src="res/ios/icon-72.png" width="72" height="72" />
+      <icon src="res/ios/icon-72@2x.png" width="144" height="144" />
+      <splash src="res/ios/Default.png" width="320" height="480" />
+      <splash src="res/ios/Default@2x.png" width="640" height="960" />
+      <splash src="res/ios/Default-568h@2x.png" width="640" height="1136" />
+      <splash src="res/ios/Default-w@2x.png" width="960" height="640" />
+      <splash src="res/ios/Default-568w@2x.png" width="1136" height="640" />
+    </platform>
+    <platform name="android">
+      <icon src="res/android/icon-48-mdpi.png" width="48" height="48" density="mdpi" />
+      <icon src="res/android/icon-72-hdpi.png" width="72" height="72" density="hdpi" />
+      <icon src="res/android/icon-96-xhdpi.png" width="96" height="96" density="xhdpi" />
+
+      <splash src="res/android/splash-land-mdpi.9.png" density="land-mdpi"/>
+      <splash src="res/android/splash-land-hdpi.9.png" density="land-hdpi"/>
+      <splash src="res/android/splash-land-xhdpi.9.png" density="land-xhdpi"/>
+
+      <splash src="res/android/splash-port-mdpi.9.png" density="port-mdpi"/>
+      <splash src="res/android/splash-port-hdpi.9.png" density="port-hdpi"/>
+      <splash src="res/android/splash-port-xhdpi.9.png" density="port-xhdpi"/>
+    </platform>
+</widget>

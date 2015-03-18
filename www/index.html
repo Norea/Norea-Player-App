@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Norea</title>
+		<script src="./js/index.js"></script>
+		<script src="./js/programdata.js"></script>
+		<script src="cordova.js"></script>
+	</head>
+	<body>
+		<header id="header">
+		</header>
+		<div id="content">
+			<script>
+				loadMenu();
+			</script>
+		</div>
+		<footer id="footer">
+			<div id="playerBox"></div>
+			<div id="scrubber">
+				<div id="progress"></div>
+				<div id="loaded"></div>
+			</div>
+			<div id="play-pause">
+				<p id="play"></p>
+				<p id="pause"></p>
+			</div>
+			<div id="time">
+				<div id="played">00:00</div>/<div id="duration">00:00</div>
+			</div>
+		</footer>
+		<div id="error"><p>Uppkoppling saknas</p><a onclick="closeError();">Stäng</a></div>
+ 	</body>
+</html>
