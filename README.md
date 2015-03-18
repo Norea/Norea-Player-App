@@ -4,9 +4,10 @@
 This is an Apache Cordova project, so make sure [Apache Cordova](https://cordova.apache.org/) is installed before you start.
 
 ###Plugins
-Norea Player uses the **splashscreen** plugin.
+Norea Player uses the **splashscreen** plugin and the **device** plugin.
 
     cordova plugin add org.apache.cordova.splashscreen
+    cordova plugin add org.apache.cordova.device
 
 ##License
 There are two different kinds of content in this git, some which you can use freely (MIT) and some which you need our permission to use.
