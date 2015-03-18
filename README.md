@@ -11,10 +11,10 @@ Norea Player uses the **splashscreen** plugin.
 ##License
 There are two different kinds of content in this git, some which you can use freely (MIT) and some which you need our permission to use.
 
-###Logos and linked audio
+###Logos and linked audio license
 All the logos and linked audio are copyrighted by Norea Sverige and cannot be used without permission. Contact [kontoret@noreasverige.se](mailto:kontoret@noreasverige.se) if you want to license our audio and we'll figure something out.
 
-###Code
+###Code license
 All the code is published under the **MIT license** and can be used according to this license.
 
 
