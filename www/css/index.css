@@ -1,30 +1,33 @@
-*
-	{
+* {
 	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-	}
+	margin: 0;
+	padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-body
-	{
+body {
 	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
 	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
 	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 	height:100%;
 	width:100%;
-	background: #bbb;
+	background: #e7e7e7;
 	color: #555;
 	font-family: Arial, Verdana, sansserif;
 	font-size: 16px;
-	margin: 0;
-	padding: 0;
-	}
+}
 
-a
-	{
+a {
 	cursor: pointer;
-	}
+}
 
-#header
-	{
+
+#header {
 	z-index: 2;
 	position: fixed;
 	top: 0px;
@@ -34,10 +37,9 @@ a
 	overflow: hidden;
 	background: #eaeaea;
 	border-bottom: 1px solid #ccc;
-	}
+}
 
-	#header #back
-		{
+	#header #back {
 		position: relative;
 		float: left;
 		background: url(../img/roundback.png) no-repeat center center;
@@ -46,29 +48,25 @@ a
 		width: 100px;
 		height: 100px;
 		text-indent: -9999px;
-		}
+	}
 
-	#header h1
-		{
+	#header h1 {
 		float: left;
 		width: auto;
 		margin: 0;
 		padding: 0;
-		}
+	}
 
-
-	#header #home
-		{
+	#header #home {
 		display: block;
-		background: url(../img/norealogo.png) no-repeat center center;
+		background: #82982e url(../img/norealogo-vit.png) no-repeat center center;
 		background-size: 219px 64px;
 		width: 100%;
 		height: 100px;
 		text-indent: -9999px;
-		}
+	}
 
-	#header #norea
-		{
+	#header #norea {
 		display: block;
 		background: url(../img/noreaglobe.png) no-repeat center center;
 		background-size: 64px 64px;
@@ -76,10 +74,9 @@ a
 		min-height: 100px;
 		text-indent: -9999px;
 		float: right;
-		}
+	}
 
-	#header #omg
-		{
+	#header #omg {
 		display: block;
 		background: url(../img/omg.png) no-repeat center center;
 		background-size: 72px 72px;
@@ -87,10 +84,9 @@ a
 		min-height: 100px;
 		text-indent: -9999px;
 		float: right;
-		}
+	}
 
-	#header #hc
-		{
+	#header #hc {
 		display: block;
 		background: url(../img/hc.png) no-repeat center center;
 		background-size: 72px 72px;
@@ -98,10 +94,9 @@ a
 		min-height: 100px;
 		text-indent: -9999px;
 		float: right;
-		}
+	}
 
-	#header #vgb
-		{
+	#header #vgb {
 		display: block;
 		background: url(../img/vgb.png) no-repeat center center;
 		background-size: 114px 72px;
@@ -109,11 +104,10 @@ a
 		min-height: 100px;
 		text-indent: -9999px;
 		float: right;
-		}
+	}
 
 
-#content
-	{
+#content {
 	z-index: 1;
 	clear: left;
 	float: left;
@@ -122,34 +116,46 @@ a
 	margin-top: 100px;
 	margin-bottom: 0;
 	overflow: hidden;
-	}
+}
 
-	#content #textbox
-		{
+	#content #textbox {
 		color: #555;
-		background: #eee;
+		background: #fafafa;
 		border-bottom: 1px solid #ddd;
 		margin: 0;
 		padding: 0;
 		padding-top: 20px;
-		}
+	}
 
-	#content p
-		{
+	#content p {
 		margin: 0;
 		margin-bottom: 20px;
 		padding: 0 20px;
 		line-height: 1.5em;
-		}
+	}
 
 
-	#content a
-		{
+	#content a {
 		text-decoration: none;
-		}
+	}
 
-	#content .track
-		{
+	#content h2 {
+		clear: left;
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #ddd;
+		color: #eee;
+		background: #38909b;
+		font-size: 18px;
+		font-weight: normal;
+		line-height: 27px;
+		text-transform: uppercase;
+		padding: 0;
+		padding-left: 32px;
+		box-sizing: border-box;
+	}
+
+	#content .track {
 		clear: left;
 		float: left;
 		width: 100%;
@@ -157,14 +163,14 @@ a
 		color: #555;
 		background: #eee;
 		font-size: 18px;
+		line-height: 18px;
 		padding: 0;
 		padding-left: 18px;
 		border-bottom: 1px solid #ddd;
 		box-sizing: border-box;
-		}
+	}
 
-	#content .nr
-		{
+	#content .nr {
 		float: left;
 		margin: 5px 18px 5px 0;
 		padding: 10px 15px;
@@ -173,50 +179,45 @@ a
 		border-radius: 20px;
 		line-height: 20px;
 		font-size: 20px;
-		}
+	}
 
-	#content .title
-		{
+	#content .title {
 		position: relative;
 		top: 0px;
 		left: 0px;
 		white-space: nowrap;
 		padding: 16px 0;
 		display: block;
-		}
+	}
 
-	#content #omg
-		{
+	#content #omg {
 		display: block;
 		background: #eee url(../img/omg.png) no-repeat center center;
 		background-size: 72px 72px;
 		min-height: 100px;
 		text-indent: -9999px;
 		border-bottom: 1px solid #ddd;
-		}
+	}
 
-	#content #hc
-		{
+	#content #hc {
 		display: block;
 		background: #eee url(../img/hc.png) no-repeat center center;
 		background-size: 72px 72px;
 		min-height: 100px;
 		text-indent: -9999px;
 		border-bottom: 1px solid #ddd;
-		}
+	}
 
-	#content #vgb
-		{
+	#content #vgb {
 		display: block;
 		background: #eee url(../img/vgb.png) no-repeat center center;
 		background-size: 114px 72px;
 		min-height: 100px;
 		text-indent: -9999px;
 		border-bottom: 1px solid #ddd;
-		}
+	}
 
-#footer
-	{
+#footer {
 	position: absolute;
 	right: 0px;
 	left: 64px;
@@ -231,16 +232,14 @@ a
 	margin-left: 64px;
 	cursor: pointer;
 	display: none;
-	}
+}
 
-#footer audio
-	{
+#footer audio {
 	position: absolute;
 	left: -1px;
-	}
+}
 
-#footer #play-pause
-	{
+#footer #play-pause {
 	width: 64px;
 	height: 64px;
 	padding: 8px;
@@ -252,37 +251,33 @@ a
 	float: left;
 	background: #eaeaea;
 	border-top: 1px solid #ccc;
-	}
+}
 
-	#footer p
-		{
+	#footer p {
 		display: none;
 		width: 48px;
 		height: 48px;
 		margin: 0px;
 		cursor: pointer;
-		}
+	}
 
-	#footer #play
-		{
+	#footer #play {
 		background: url(../img/play-pause.png) no-repeat center top;
 		background-size: 48px 96px;
 		width: 48px;
 		height: 48px;
 		display: none;
-		}
+	}
 
-	#footer #pause
-		{
+	#footer #pause {
 		background: url(../img/play-pause.png) no-repeat center bottom;
 		background-size: 48px 96px;
 		display: block;
 		width: 48px;
 		height: 48px;
-		}
+	}
 
-#footer #scrubber
-	{
+#footer #scrubber {
 	position: relative;
 	display: block;
 	width: 100%;
@@ -290,10 +285,9 @@ a
 	margin: 0;
 	overflow: hidden;
 	background: #896;
-	}
+}
 
-	#footer #progress
-		{
+	#footer #progressBar {
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -302,10 +296,9 @@ a
 		background: #bccc7d;
 		z-index: 1;
 		border-right: 1px solid #efb;
-		}
+	}
 
-	#footer #loaded
-		{
+	#footer #bufferBar {
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -313,10 +306,9 @@ a
 		width: 0px;
 		background: #9a7;
 		border-right: 1px solid #bc7;
-		}
+	}
 
-	#footer #time
-		{
+	#footer #time {
 		line-height: 64px;
 		display: block;
 		margin: -64px 0 0 0;
@@ -325,25 +317,22 @@ a
 		float: right;
 		position: relative;
 		z-index: 2;
-		}
+	}
 
-		#footer #time #played
-			{
+		#footer #time #played {
 			padding: 0px 2px 0px 0px;
 			color: #f9f9f9;
 			font-style: normal;
 			display: inline;
-			}
+		}
 
-		#footer #time #duration
-			{
+		#footer #time #duration {
 			padding: 0px 0px 0px 2px;
 			font-weight: normal;
 			display: inline;
-			}
+		}
 
-#error
-	{
+#error {
 	position: absolute;
 	right: 0px;
 	left: 0px;
@@ -358,20 +347,18 @@ a
 	cursor: pointer;
 	display: none;
 	background: #e66;
-	}
+}
 
-	#error p
-		{
+	#error p {
 		float:left;
 		margin: 20px;
 		color: #fff;
 		display: block;
-		}
+	}
 
-	#error a
-		{
+	#error a {
 		float:right;
 		margin: 20px;
 		color: #fff;
 		display: block;
-		}
+	}

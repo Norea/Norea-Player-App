@@ -1,17 +1,22 @@
-/*---------------------------*/
-/* Rendering dynamic content */
-/*---------------------------*/
+var isMain = false;
+var isPlaying = false;
+var program;
 
 if (document != undefined) {
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
-var isMain = false;
-var isPlaying = false;
 
 function onDeviceReady() {
 	uiListener();
+
+	// loads programdata.json in the background
+	getjson("./data/programdata.json", function(content){
+		program = JSON.parse(content);
+	});
+
 	// Android back button
 	document.addEventListener("backbutton", backButton, false);
+
 	// if we need to compensate for iOS status bar
 	if (window.device.platform.toLowerCase() == "ios" && parseFloat(window.device.version) >= 7.0) {
 		document.getElementById("header").style["padding-top"] = "20px";
@@ -20,7 +25,22 @@ function onDeviceReady() {
 	cordova.exec(null, null, "SplashScreen", "hide", []);
 }
 
-// handles Android backbutton event
+function getjson(url, content) {
+  var req = new XMLHttpRequest();
+  req.open("GET", url, true);
+  req.addEventListener("load", function() {
+    if (req.status < 400) {
+      content(req.responseText);
+		}
+		else {
+			content("error");
+		}
+  });
+	req.overrideMimeType("application/json");
+  req.send(null);
+}
+
+/* handles Android backbutton event */
 function backButton() {
 	if(isMain){
 		if(isPlaying){
@@ -36,22 +56,21 @@ function backButton() {
 function loadMenu() {
 	isMain = true;
 	var mainMenu = '<a onclick="loadOmg();" id="omg">Ögonblick med Gud</a><a onclick="loadHc();" id="hc">Hannas Café</a><a onclick="loadVgb();" id="vgb">VGB</a>'
-	var content = document.getElementById("content");
-	content.innerHTML = mainMenu;
+	document.getElementById("content").innerHTML = mainMenu;
 	var mainHeader = '<a onclick="loadInfo();" id="home">Norea Sverige</a>';
-	var header = document.getElementById("header");
-	header.innerHTML = mainHeader;
+	document.getElementById("header").innerHTML = mainHeader;
 }
 
-function makeLink(program) {
-	return '<a title="' + program["title"] + '" onclick="playTrack(\'' + program["url"] + '\');" class="track"><div class="nr">' + program["nr"] + '</div><div class="title">' + program["title"] + '</div></a>';
+/* returns html for a track */
+function makeLink(track) {
+	return '<a title="' + track["title"] + '" onclick="playTrack(\'' + track["url"] + '\');" class="track"><div class="nr">' + track["nr"] + '</div><div class="title">' + track["title"] + '</div></a>';
 }
 
 function loadOmg() {
 	isMain = false;
 	var newList = '<div id="textbox"><p><b>Ögonblick med Gud</b> är en programserie med små korta andakter som kan fungera som en hjälp att förstå mer om Guds kärlek. Oavsett om du har hittat regelbundenhet i ditt andaktsliv eller om du fortfarande kämpar kan det här programmet hjälpa dig att ta tid för Gud.</p></div>';
-	for(var i=0; i<omg.length; i++){
-		newList += makeLink(omg[i]);
+	for(var i=0; i<program.omg.length; i++){
+		newList += makeLink(program.omg[i]);
 	}
 	var content = document.getElementById("content");
 	content.innerHTML = newList;
@@ -63,8 +82,8 @@ function loadOmg() {
 function loadHc() {
 	isMain = false;
 	var newList = '<div id="textbox"><p><b>Hannas Café</b> är en programserie där en mängd kvinnor delar med sig av olika livssituationer som drabbat dem. Det gemensamma för alla vittnesbörd är upplevelsen av hur Gud, mitt i all hopplöshet, grep in och gjorde det trasiga helt.</p></div>';
-	for(var i=0; i<hc.length; i++){
-		newList += makeLink(hc[i]);
+	for(var i=0; i<program.hc.length; i++){
+		newList += makeLink(program.hc[i]);
 	}
 	var content = document.getElementById("content");
 	content.innerHTML = newList;
@@ -76,8 +95,13 @@ function loadHc() {
 function loadVgb() {
 	isMain = false;
 	var newList = '<div id="textbox"><p><b>Vägen genom Bibeln</b> är en programserie som går igenom hela Bibeln från pärm till pärm i 1245 halvtimmeslånga program. Det går när som helst att hoppa på resan och när Uppenbarelsebokens sista kapitel är läst börjar serien om igen i 1 Mosebok.</p></div>';
-	for(var i=0; i<vgb.length; i++){
-		newList += makeLink(vgb[i]);
+	for(var i=0; i<program.vgb.length; i++){
+		newList += "<h2 id='" + program.vgb[i].heading + "'>" + program.vgb[i].heading + "</h2>";
+		newList += "<ul>";
+		for(var j=0; j<program.vgb[i].track.length; j++){
+			newList += makeLink(program.vgb[i].track[j]);
+		}
+		newList += "</ul>";
 	}
 	var content = document.getElementById("content");
 	content.innerHTML = newList;
@@ -96,59 +120,78 @@ function loadInfo() {
 	header.innerHTML = backHeader;
 }
 
-	/* lägg det valda programmet i spelaren */
+/* puts the chosen track in the player */
 function playTrack(track) {
+	resetPlayer();
 
-	// Återställ spelarens kontroller
-	var progress = document.getElementById("progress");
-	progress.style.width = '0';
+	// puts the html audio tag into the playerBox
+	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + track + '" preload="none"></audio>';
 
-	var loaded = document.getElementById("loaded");
-	loaded.style.width = '0';
-
-	// Lägg rätt spår i spelaren
-	var playerBox = document.getElementById("playerBox");
-	playerBox.innerHTML = '<audio id="player" src="' + track + '" preload="metadata"></audio>';
-
-	// Gör spelaren synlig
-	showFooter();
-
-	// Starta uppspelning
-	initPlay();
-
+	showFooter(); // make the player visible
+	initPlay(); // start playback
 }
 
-
-/*------------------------------*/
-/* Editing the rendered content */
-/*------------------------------*/
+/* resets the player UI */
+function resetPlayer(){
+	document.getElementById("progressBar").style.width = '0px';
+	document.getElementById("bufferBar").style.width = '0px';
+	document.getElementById("played").innerHTML = '00:00';
+	document.getElementById("duration").innerHTML = '00:00';
+}
 
 function uiListener(){
-
 	var footer = document.getElementById("footer");
 
-	/* when user clicks in the footer */
-	footer.addEventListener("click", function(e){clicks(e);});
+	footer.addEventListener("touchstart", function(e){
+    var mouseX = e.changedTouches[0].clientX-64; // 64 is the width of th play button
+		if (mouseX<0){
+			playpause();
+		}
+		else{
+			moveTo(mouseX);
+		}
+    e.preventDefault()
+  }, false);
 
+  footer.addEventListener("touchmove", function(e){
+    var mouseX = e.changedTouches[0].clientX-64;
+    if (mouseX>0){
+			moveTo(mouseX);
+		}
+    e.preventDefault()
+  }, false);
+
+	/* updates the time to the mouse X position */
+	function moveTo(mouseX){
+		var width = document.getElementById("scrubber").offsetWidth;
+		var percent = mouseX / width;
+		var player = document.getElementById("player");
+		player.currentTime = player.duration * percent;
+	}
 }
 
-
 function initPlay(){
-
 	var player = document.getElementById("player");
 
-	/* when player updates time */
-	player.addEventListener("timeupdate", function(){progress();});
+	/* when player updates progress time */
+	player.addEventListener("timeupdate", function(){
+		updateProgress();
+	}, false);
+
+	/* when player updates buffer time */
+	player.addEventListener("progress", function(){
+		updateBuffer();
+	}, false);
 
 	/* when track ends */
 	player.addEventListener("ended", onEnded);
 
-	player.addEventListener("error", function(e) {
+	player.addEventListener("error", function(e){
 		var footer = document.getElementById("footer");
 		footer.style.display = 'none';
 		var error = document.getElementById("error");
 		error.style.display = 'block';
-	});
+	}, false);
 
 	/* start initial play */
 	playpause();
@@ -168,32 +211,37 @@ function ms(time){
 	}
 }
 
-/* updates duration, buffered and progress bars */
-function progress(){
+/* updates progress bar */
+function updateProgress(){
 	var player = document.getElementById("player");
 
-	var duration = document.getElementById("duration");
-	duration.innerHTML = ms(player.duration);
-	var loadedBar = document.getElementById("loaded");
+	document.getElementById("played").innerHTML = ms(player.currentTime);
+	document.getElementById("duration").innerHTML = ms(player.duration);
 
-	/* updates time buffered */
-	if (player && player.buffered && player.buffered.length > 0){
-		var loaded = player.buffered.end(0);
-		var percent = 100*(loaded / player.duration);
-		loadedBar.style.width = percent + '%';
-	}
-	else{
-		loadedBar.style.width = '0px';
-	}
-
-	/* updates time played */
-	played.innerHTML = ms(player.currentTime);
-	percent = 100*(player.currentTime / player.duration);
-	var progress = document.getElementById("progress");
-	progress.style.width = percent + '%';
+	var progressBar = document.getElementById("progressBar");
+	var percent = 100*(player.currentTime / player.duration);
+	progressBar.style.width = percent + '%';
 }
 
-function playing(){
+/* updates buffer bar */
+function updateBuffer(){
+	var player = document.getElementById("player");
+
+	var bufferBar = document.getElementById("bufferBar");
+	if (player.buffered.length > 0){
+		var bufferEnd = player.buffered.end(player.buffered.length-1);
+		//var bufferEnd = player.buffered.end(0);
+		var percent = 100 * (bufferEnd / player.duration);
+		bufferBar.style.width = percent + '%';
+		console.log(100*(bufferEnd / player.duration));
+
+	}
+	else{
+		bufferBar.style.width = '0px';
+	}
+}
+
+function playButton(){
 	var pausebtn = document.getElementById("pause");
 	pausebtn.style.display = 'block';
 	var playbtn = document.getElementById("play");
@@ -201,7 +249,7 @@ function playing(){
 	isPlaying = true;
 }
 
-function pausing(){
+function pauseButton(){
 	var pausebtn = document.getElementById("pause");
 	pausebtn.style.display = 'none';
 	var playbtn = document.getElementById("play");
@@ -214,11 +262,11 @@ function playpause(){
 	player = document.getElementById("player");
 	if (player.paused){
 		player.play();
-		playing();
+		playButton();
 	}
 	else{
 		player.pause();
-		pausing();
+		pauseButton();
 	}
 }
 
@@ -226,20 +274,6 @@ function playpause(){
 function onEnded(){
 	closeFooter();
 	isPlaying = false;
-}
-
-/* changes playing location based on mouse click x-value */
-function clicks(e){
-	var clickX = e.clientX-64; // 64 is the width of the play-pause button
-	if (clickX<0){
-		playpause();
-	}
-	else{
-		var width = document.getElementById("scrubber").offsetWidth;
-		var percent = clickX / width;
-		var player = document.getElementById("player");
-		player.currentTime = player.duration * percent;
-	}
 }
 
 function showFooter(){
