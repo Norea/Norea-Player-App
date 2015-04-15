@@ -1,12 +1,12 @@
 {
 	"vgb": [
 	{
-	"heading": "1 Mos",
+	"heading": "Första Moseboken",
 	"track": [
 	{
 		"nr": "1",
 		"url": "http://www.noreasverige.se/vgb/0001vgb.mp3",
-		"title": "1 Mos introduktion"
+		"title": "1 Mos intro"
 	},
 	{
 		"nr": "2",
@@ -286,12 +286,12 @@
 	]
 	},
 	{
-		"heading": "Matt",
+		"heading": "Matteusevangeliet",
 		"track": [
 	{
 		"nr": "57",
 		"url": "http://www.noreasverige.se/vgb/0057vgb.mp3",
-		"title": "Matt introduktion"
+		"title": "Matt intro"
 	},
 	{
 		"nr": "58",
@@ -466,7 +466,7 @@
 ]
 },
 {
-"heading": "2 Mos",
+"heading": "Andra Moseboken",
 "track": [
 
 	{
@@ -647,7 +647,7 @@
 ]
 },
 {
-"heading": "Mark",
+"heading": "Markusevangeliet",
 "track": [
 
 	{
@@ -748,7 +748,7 @@
 ]
 },
 {
-"heading": "3 Mos",
+"heading": "Tredje Moseboken",
 "track": [
 
 	{
@@ -929,7 +929,7 @@
 ]
 },
 {
-"heading": "Luk",
+"heading": "Lukasevangeliet",
 "track": [
 
 	{
@@ -1085,7 +1085,7 @@
 ]
 },
 {
-"heading": "4 Mos",
+"heading": "Fjärde Moseboken",
 "track": [
 
 	{
@@ -1206,7 +1206,7 @@
 ]
 },
 {
-"heading": "Joh",
+"heading": "Johannesevangeliet",
 "track": [
 
 	{
@@ -1387,7 +1387,7 @@
 ]
 },
 {
-"heading": "5 Mos",
+"heading": "Femte Moseboken",
 "track": [
 
 	{
@@ -1518,7 +1518,7 @@
 ]
 },
 {
-"heading": "Jos",
+"heading": "Josua",
 "track": [
 
 	{
@@ -1579,7 +1579,7 @@
 ]
 },
 {
-"heading": "Dom",
+"heading": "Domarboken",
 "track": [
 
 	{
@@ -1696,7 +1696,7 @@
 ]
 },
 {
-"heading": "Apg",
+"heading": "Apostlagärningarna",
 "track": [
 
 	{
@@ -1867,7 +1867,7 @@
 ]
 },
 {
-"heading": "1 Sam",
+"heading": "Första Samuelsboken",
 "track": [
 
 	{
@@ -2008,7 +2008,7 @@
 ]
 },
 {
-"heading": "2 Sam",
+"heading": "Andra Samuelsboken",
 "track": [
 
 	{
@@ -2114,214 +2114,214 @@
 ]
 },
 {
-"heading": "1 Kon",
+"heading": "Första Kungaboken",
 "track": [
 
 	{
 		"nr": "406",
 		"url": "http://www.noreasverige.se/vgb/0406vgb.mp3",
-		"title": "1 Kon 1"
+		"title": "1 Kung 1"
 	},
 	{
 		"nr": "407",
 		"url": "http://www.noreasverige.se/vgb/0407vgb.mp3",
-		"title": "1 Kon 2"
+		"title": "1 Kung 2"
 	},
 	{
 		"nr": "408",
 		"url": "http://www.noreasverige.se/vgb/0408vgb.mp3",
-		"title": "1 Kon 3 - 4"
+		"title": "1 Kung 3 - 4"
 	},
 	{
 		"nr": "409",
 		"url": "http://www.noreasverige.se/vgb/0409vgb.mp3",
-		"title": "1 Kon 5 - 6"
+		"title": "1 Kung 5 - 6"
 	},
 	{
 		"nr": "410",
 		"url": "http://www.noreasverige.se/vgb/0410vgb.mp3",
-		"title": "1 Kon 7 - 8"
+		"title": "1 Kung 7 - 8"
 	},
 	{
 		"nr": "411",
 		"url": "http://www.noreasverige.se/vgb/0411vgb.mp3",
-		"title": "1 Kon 9 - 10"
+		"title": "1 Kung 9 - 10"
 	},
 	{
 		"nr": "412",
 		"url": "http://www.noreasverige.se/vgb/0412vgb.mp3",
-		"title": "1 Kon 11"
+		"title": "1 Kung 11"
 	},
 	{
 		"nr": "413",
 		"url": "http://www.noreasverige.se/vgb/0413vgb.mp3",
-		"title": "1 Kon 12"
+		"title": "1 Kung 12"
 	},
 	{
 		"nr": "414",
 		"url": "http://www.noreasverige.se/vgb/0414vgb.mp3",
-		"title": "1 Kon 13"
+		"title": "1 Kung 13"
 	},
 	{
 		"nr": "415",
 		"url": "http://www.noreasverige.se/vgb/0415vgb.mp3",
-		"title": "1 Kon 14"
+		"title": "1 Kung 14"
 	},
 	{
 		"nr": "416",
 		"url": "http://www.noreasverige.se/vgb/0416vgb.mp3",
-		"title": "1 Kon 15"
+		"title": "1 Kung 15"
 	},
 	{
 		"nr": "417",
 		"url": "http://www.noreasverige.se/vgb/0417vgb.mp3",
-		"title": "1 Kon 16 - 17"
+		"title": "1 Kung 16 - 17"
 	},
 	{
 		"nr": "418",
 		"url": "http://www.noreasverige.se/vgb/0418vgb.mp3",
-		"title": "1 Kon 18:1 - 24"
+		"title": "1 Kung 18:1 - 24"
 	},
 	{
 		"nr": "419",
 		"url": "http://www.noreasverige.se/vgb/0419vgb.mp3",
-		"title": "1 Kon 18:25 - 46"
+		"title": "1 Kung 18:25 - 46"
 	},
 	{
 		"nr": "420",
 		"url": "http://www.noreasverige.se/vgb/0420vgb.mp3",
-		"title": "1 Kon 19:1 - 18"
+		"title": "1 Kung 19:1 - 18"
 	},
 	{
 		"nr": "421",
 		"url": "http://www.noreasverige.se/vgb/0421vgb.mp3",
-		"title": "1 Kon 19:19 - 21:29"
+		"title": "1 Kung 19:19 - 21:29"
 	},
 	{
 		"nr": "422",
 		"url": "http://www.noreasverige.se/vgb/0422vgb.mp3",
-		"title": "1 Kon 22"
+		"title": "1 Kung 22"
 	}
 ]
 },
 {
-"heading": "2 Kon",
+"heading": "Andra Kungaboken",
 "track": [
 
 	{
 		"nr": "423",
 		"url": "http://www.noreasverige.se/vgb/0423vgb.mp3",
-		"title": "2 Kon 1:1 - 2:6"
+		"title": "2 Kung 1:1 - 2:6"
 	},
 	{
 		"nr": "424",
 		"url": "http://www.noreasverige.se/vgb/0424vgb.mp3",
-		"title": "2 Kon 2:7 - 22"
+		"title": "2 Kung 2:7 - 22"
 	},
 	{
 		"nr": "425",
 		"url": "http://www.noreasverige.se/vgb/0425vgb.mp3",
-		"title": "2 Kon 2:23 - 3:27"
+		"title": "2 Kung 2:23 - 3:27"
 	},
 	{
 		"nr": "426",
 		"url": "http://www.noreasverige.se/vgb/0426vgb.mp3",
-		"title": "2 Kon 4"
+		"title": "2 Kung 4"
 	},
 	{
 		"nr": "427",
 		"url": "http://www.noreasverige.se/vgb/0427vgb.mp3",
-		"title": "2 Kon 5:1 - 14"
+		"title": "2 Kung 5:1 - 14"
 	},
 	{
 		"nr": "428",
 		"url": "http://www.noreasverige.se/vgb/0428vgb.mp3",
-		"title": "2 Kon 5:15 - 27"
+		"title": "2 Kung 5:15 - 27"
 	},
 	{
 		"nr": "429",
 		"url": "http://www.noreasverige.se/vgb/0429vgb.mp3",
-		"title": "2 Kon 6:1 - 7"
+		"title": "2 Kung 6:1 - 7"
 	},
 	{
 		"nr": "430",
 		"url": "http://www.noreasverige.se/vgb/0430vgb.mp3",
-		"title": "2 Kon 6:8 - 7:20"
+		"title": "2 Kung 6:8 - 7:20"
 	},
 	{
 		"nr": "431",
 		"url": "http://www.noreasverige.se/vgb/0431vgb.mp3",
-		"title": "2 Kon 8:1 - 9:29"
+		"title": "2 Kung 8:1 - 9:29"
 	},
 	{
 		"nr": "432",
 		"url": "http://www.noreasverige.se/vgb/0432vgb.mp3",
-		"title": "2 Kon 9:30 - 10:36"
+		"title": "2 Kung 9:30 - 10:36"
 	},
 	{
 		"nr": "433",
 		"url": "http://www.noreasverige.se/vgb/0433vgb.mp3",
-		"title": "2 Kon 11:1 - 12:21"
+		"title": "2 Kung 11:1 - 12:21"
 	},
 	{
 		"nr": "434",
 		"url": "http://www.noreasverige.se/vgb/0435vgb.mp3",
-		"title": "2 Kon 12:17 - 13:21"
+		"title": "2 Kung 12:17 - 13:21"
 	},
 	{
 		"nr": "435",
 		"url": "http://www.noreasverige.se/vgb/0434vgb.mp3",
-		"title": "2 Kon 13:22 - 15:38"
+		"title": "2 Kung 13:22 - 15:38"
 	},
 	{
 		"nr": "436",
 		"url": "http://www.noreasverige.se/vgb/0436vgb.mp3",
-		"title": "2 Kon 16"
+		"title": "2 Kung 16"
 	},
 	{
 		"nr": "437",
 		"url": "http://www.noreasverige.se/vgb/0437vgb.mp3",
-		"title": "2 Kon 17"
+		"title": "2 Kung 17"
 	},
 	{
 		"nr": "438",
 		"url": "http://www.noreasverige.se/vgb/0438vgb.mp3",
-		"title": "2 Kon 18"
+		"title": "2 Kung 18"
 	},
 	{
 		"nr": "439",
 		"url": "http://www.noreasverige.se/vgb/0439vgb.mp3",
-		"title": "2 Kon 19"
+		"title": "2 Kung 19"
 	},
 	{
 		"nr": "440",
 		"url": "http://www.noreasverige.se/vgb/0440vgb.mp3",
-		"title": "2 Kon 20"
+		"title": "2 Kung 20"
 	},
 	{
 		"nr": "441",
 		"url": "http://www.noreasverige.se/vgb/0441vgb.mp3",
-		"title": "2 Kon 21"
+		"title": "2 Kung 21"
 	},
 	{
 		"nr": "442",
 		"url": "http://www.noreasverige.se/vgb/0442vgb.mp3",
-		"title": "2 Kon 22"
+		"title": "2 Kung 22"
 	},
 	{
 		"nr": "443",
 		"url": "http://www.noreasverige.se/vgb/0443vgb.mp3",
-		"title": "2 Kon 23"
+		"title": "2 Kung 23"
 	},
 	{
 		"nr": "444",
 		"url": "http://www.noreasverige.se/vgb/0444vgb.mp3",
-		"title": "2 Kon 24 - 25"
+		"title": "2 Kung 24 - 25"
 	}
 ]
 },
 {
-"heading": "Rom",
+"heading": "Romarbrevet",
 "track": [
 
 	{
@@ -2467,7 +2467,7 @@
 ]
 },
 {
-"heading": "1 Krön",
+"heading": "Första Krönikeboken",
 "track": [
 
 	{
@@ -2553,7 +2553,7 @@
 ]
 },
 {
-"heading": "2 Krön",
+"heading": "Andra Krönikeboken",
 "track": [
 
 	{
@@ -2664,7 +2664,7 @@
 ]
 },
 {
-"heading": "1 Kor",
+"heading": "Första Korintierbrevet",
 "track": [
 
 	{
@@ -2846,7 +2846,7 @@
 ]
 },
 {
-"heading": "Neh",
+"heading": "Nehemja",
 "track": [
 
 	{
@@ -2907,7 +2907,7 @@
 ]
 },
 {
-"heading": "2 Kor",
+"heading": "Andra Korintierbrevet",
 "track": [
 
 	{
@@ -3009,7 +3009,7 @@
 	{
 		"nr": "573",
 		"url": "http://www.noreasverige.se/vgb/0573vgb.mp3",
-		"title": "Ester introduktion"
+		"title": "Ester intro"
 	},
 	{
 		"nr": "574",
@@ -3185,7 +3185,7 @@
 ]
 },
 {
-"heading": "Gal",
+"heading": "Galaterbrevet",
 "track": [
 
 	{
@@ -3281,13 +3281,13 @@
 ]
 },
 {
-"heading": "Ps",
+"heading": "Psaltaren",
 "track": [
 
 	{
 		"nr": "625",
 		"url": "http://www.noreasverige.se/vgb/0625vgb.mp3",
-		"title": "Ps introduktion"
+		"title": "Ps intro"
 	},
 	{
 		"nr": "626",
@@ -3717,7 +3717,7 @@
 ]
 },
 {
-"heading": "Ef",
+"heading": "Efesierbrevet",
 "track": [
 
 	{
@@ -3818,7 +3818,7 @@
 ]
 },
 {
-"heading": "Ords",
+"heading": "Ordspråksboken",
 "track": [
 
 	{
@@ -3979,7 +3979,7 @@
 ]
 },
 {
-"heading": "Fil",
+"heading": "Filipperbrevet",
 "track": [
 
 	{
@@ -4050,7 +4050,7 @@
 ]
 },
 {
-"heading": "Pred",
+"heading": "Predikaren",
 "track": [
 
 	{
@@ -4106,13 +4106,13 @@
 ]
 },
 {
-"heading": "Höga V",
+"heading": "Höga Visan",
 "track": [
 
 	{
 		"nr": "784",
 		"url": "http://www.noreasverige.se/vgb/0784vgb.mp3",
-		"title": "Höga V introduktion"
+		"title": "Höga V intro"
 	},
 	{
 		"nr": "785",
@@ -4157,13 +4157,13 @@
 ]
 },
 {
-"heading": "Kol",
+"heading": "Kolosserbrevet",
 "track": [
 
 	{
 		"nr": "793",
 		"url": "http://www.noreasverige.se/vgb/0793vgb.mp3",
-		"title": "Kol introduktion"
+		"title": "Kol intro"
 	},
 	{
 		"nr": "794",
@@ -4228,13 +4228,13 @@
 ]
 },
 {
-"heading": "Jes",
+"heading": "Jesaja",
 "track": [
 
 	{
 		"nr": "806",
 		"url": "http://www.noreasverige.se/vgb/0806vgb.mp3",
-		"title": "Jes introduktion"
+		"title": "Jes intro"
 	},
 	{
 		"nr": "807",
@@ -4529,7 +4529,7 @@
 ]
 },
 {
-"heading": "1 Tess",
+"heading": "Första Tessalonikerbrevet",
 "track": [
 
 	{
@@ -4585,7 +4585,7 @@
 ]
 },
 {
-"heading": "2 Tess",
+"heading": "Andra Tessalonikerbrevet",
 "track": [
 
 	{
@@ -4606,7 +4606,7 @@
 ]
 },
 {
-"heading": "Jer",
+"heading": "Jeremia",
 "track": [
 
 	{
@@ -4747,7 +4747,7 @@
 ]
 },
 {
-"heading": "Klag",
+"heading": "Klagovisorna",
 "track": [
 
 	{
@@ -4768,13 +4768,13 @@
 ]
 },
 {
-"heading": "1 Tim",
+"heading": "Första Timoteusbrevet",
 "track": [
 
 	{
 		"nr": "908",
 		"url": "http://www.noreasverige.se/vgb/0908vgb.mp3",
-		"title": "1 Tim introduktion"
+		"title": "1 Tim intro"
 	},
 	{
 		"nr": "909",
@@ -4814,7 +4814,7 @@
 ]
 },
 {
-"heading": "2 Tim",
+"heading": "Andra Timoteusbrevet",
 "track": [
 
 	{
@@ -4860,7 +4860,7 @@
 ]
 },
 {
-"heading": "Hes",
+"heading": "Hesekiel",
 "track": [
 
 	{
@@ -5001,13 +5001,13 @@
 ]
 },
 {
-"heading": "Tit",
+"heading": "Brevet till Titus",
 "track": [
 
 	{
 		"nr": "951",
 		"url": "http://www.noreasverige.se/vgb/0951vgb.mp3",
-		"title": "Tit introduktion"
+		"title": "Tit intro"
 	},
 	{
 		"nr": "952",
@@ -5032,7 +5032,7 @@
 ]
 },
 {
-"heading": "Filem",
+"heading": "Brevet till Filemon",
 "track": [
 
 	{
@@ -5048,7 +5048,7 @@
 ]
 },
 {
-"heading": "Dan",
+"heading": "Daniel",
 "track": [
 
 
@@ -5175,7 +5175,7 @@
 ]
 },
 {
-"heading": "Hebr",
+"heading": "Hebreerbrevet",
 "track": [
 
 	{
@@ -5341,18 +5341,18 @@
 ]
 },
 {
-"heading": "Hos",
+"heading": "Hosea",
 "track": [
 
 	{
 		"nr": "1014",
 		"url": "http://www.noreasverige.se/vgb/1014vgb.mp3",
-		"title": "Hos introd I"
+		"title": "Hos intro I"
 	},
 	{
 		"nr": "1015",
 		"url": "http://www.noreasverige.se/vgb/1015vgb.mp3",
-		"title": "Hos introd II"
+		"title": "Hos intro II"
 	},
 	{
 		"nr": "1016",
@@ -5432,7 +5432,7 @@
 ]
 },
 {
-"heading": "Jak",
+"heading": "Jakobs brev",
 "track": [
 
 	{
@@ -5549,13 +5549,13 @@
 ]
 },
 {
-"heading": "1 Petr",
+"heading": "Första Petrusbrevet",
 "track": [
 
 	{
 		"nr": "1052",
 		"url": "http://www.noreasverige.se/vgb/1052vgb.mp3",
-		"title": "1 Petr introduktion"
+		"title": "1 Petr intro"
 	},
 	{
 		"nr": "1053",
@@ -5636,7 +5636,7 @@
 	{
 		"nr": "1067",
 		"url": "http://www.noreasverige.se/vgb/1067vgb.mp3",
-		"title": "Amos introduktion"
+		"title": "Amos intro"
 	},
 	{
 		"nr": "1068",
@@ -5701,7 +5701,7 @@
 ]
 },
 {
-"heading": "2 Petr",
+"heading": "Andra Petrusbrevet",
 "track": [
 
 	{
@@ -5742,7 +5742,7 @@
 ]
 },
 {
-"heading": "Ob",
+"heading": "Obadja",
 "track": [
 
 	{
@@ -5774,7 +5774,7 @@
 	{
 		"nr": "1091",
 		"url": "http://www.noreasverige.se/vgb/1091vgb.mp3",
-		"title": "Jona introduktion"
+		"title": "Jona intro"
 	},
 	{
 		"nr": "1092",
@@ -5809,13 +5809,13 @@
 ]
 },
 {
-"heading": "1 Joh",
+"heading": "Första Johannesbrevet",
 "track": [
 
 	{
 		"nr": "1098",
 		"url": "http://www.noreasverige.se/vgb/1098vgb.mp3",
-		"title": "1 Joh introduktion"
+		"title": "1 Joh intro"
 	},
 	{
 		"nr": "1099",
@@ -5991,7 +5991,7 @@
 ]
 },
 {
-"heading": "2, 3 Joh",
+"heading": "Andra och tredje Johannesbrevet",
 "track": [
 
 	{
@@ -6012,7 +6012,7 @@
 ]
 },
 {
-"heading": "Nah",
+"heading": "Nahum",
 "track": [
 
 	{
@@ -6043,7 +6043,7 @@
 ]
 },
 {
-"heading": "Hab",
+"heading": "Habackuk",
 "track": [
 
 	{
@@ -6079,13 +6079,13 @@
 ]
 },
 {
-"heading": "Sef",
+"heading": "Sefanja",
 "track": [
 
 	{
 		"nr": "1146",
 		"url": "http://www.noreasverige.se/vgb/1146vgb.mp3",
-		"title": "Sef introduktion"
+		"title": "Sef intro"
 	},
 	{
 		"nr": "1147",
@@ -6120,7 +6120,7 @@
 ]
 },
 {
-"heading": "Jud",
+"heading": "Judas brev",
 "track": [
 
 	{
@@ -6156,7 +6156,7 @@
 ]
 },
 {
-"heading": "Hagg",
+"heading": "Haggai",
 "track": [
 
 	{
@@ -6192,7 +6192,7 @@
 ]
 },
 {
-"heading": "Sak",
+"heading": "Sakarja",
 "track": [
 
 	{
@@ -6323,7 +6323,7 @@
 ]
 },
 {
-"heading": "Mal",
+"heading": "Malaki",
 "track": [
 
 	{
@@ -6369,13 +6369,13 @@
 ]
 },
 {
-"heading": "Upp",
+"heading": "Uppenbarelseboken",
 "track": [
 
 	{
 		"nr": "1198",
 		"url": "http://www.noreasverige.se/vgb/1198vgb.mp3",
-		"title": "Upp introduktion"
+		"title": "Upp intro"
 	},
 	{
 		"nr": "1199",
@@ -6813,7 +6813,7 @@
 		"nr": "33",
 		"title": "Utsträckta händer i Stockholms innerstad",
 		"url": "http://hannascafe.se/wp-content/themes/hannascafe/mp3/HC_033.mp3",
-		"info": "Inga arbetar som diakon i Stockholm. Diakoni handlar om kristen tro omsatt i handling."
+		"info": "Inga arbetar som diaKung i Stockholm. Diakoni handlar om kristen tro omsatt i handling."
 	},
 	{
 		"nr": "34",

@@ -16,7 +16,7 @@ body {
 	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 	height:100%;
 	width:100%;
-	background: #e7e7e7;
+	background: #fafafa;
 	color: #555;
 	font-family: Arial, Verdana, sansserif;
 	font-size: 16px;
@@ -42,7 +42,7 @@ a {
 	#header #back {
 		position: relative;
 		float: left;
-		background: url(../img/roundback.png) no-repeat center center;
+		background: url(../img/back.png) no-repeat center center;
 		background-size: 64px 64px;
 		display: block;
 		width: 100px;
@@ -66,44 +66,47 @@ a {
 		text-indent: -9999px;
 	}
 
-	#header #norea {
+	#header .headerLogo {
 		display: block;
+		text-indent: -9999px;
+		float: right;
+		min-height: 100px;
+	}
+
+	#header #norea {
 		background: url(../img/noreaglobe.png) no-repeat center center;
 		background-size: 64px 64px;
 		width: 100px;
-		min-height: 100px;
-		text-indent: -9999px;
-		float: right;
-	}
-
-	#header #omg {
-		display: block;
-		background: url(../img/omg.png) no-repeat center center;
-		background-size: 72px 72px;
-		width: 100px;
-		min-height: 100px;
-		text-indent: -9999px;
-		float: right;
 	}
 
 	#header #hc {
-		display: block;
 		background: url(../img/hc.png) no-repeat center center;
 		background-size: 72px 72px;
 		width: 100px;
-		min-height: 100px;
-		text-indent: -9999px;
-		float: right;
+	}
+
+	#header #omg {
+		background: url(../img/omg.png) no-repeat center center;
+		background-size: 72px 72px;
+		width: 100px;
 	}
 
 	#header #vgb {
-		display: block;
 		background: url(../img/vgb.png) no-repeat center center;
-		background-size: 114px 72px;
-		width: 130px;
-		min-height: 100px;
-		text-indent: -9999px;
+		background-size: 90px 72px;
+		width: 120px;
+	}
+
+	#header #toTop {
+		position: relative;
 		float: right;
+		background: url(../img/top.png) no-repeat center center;
+		background-size: 64px 64px;
+		display: block;
+		width: 100px;
+		height: 100px;
+		text-indent: -9999px;
+		display: none;
 	}
 
 
@@ -118,13 +121,38 @@ a {
 	overflow: hidden;
 }
 
-	#content #textbox {
-		color: #555;
+	#content #hidebox {
+		display: block;
+		position: relative;
+		height: 100px;
+		overflow: hidden;
+		cursor: pointer;
 		background: #fafafa;
 		border-bottom: 1px solid #ddd;
+	}
+
+	#content #textbox {
+		display: block;
+		width: 100%;
+		color: #555;
+		background: #fafafa;
 		margin: 0;
 		padding: 0;
 		padding-top: 20px;
+	}
+
+	#content #overlay {
+		display: block;
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		height: 100px;
+		background: -ms-linear-gradient(bottom, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
+		background: -moz-linear-gradient(bottom, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
+		background: -o-linear-gradient(bottom, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
+		background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fafafa), color-stop(1, rgba(0, 0, 0, 0)));
+		background: -webkit-linear-gradient(bottom, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
+		background: linear-gradient(to top, #fafafa 0%, rgba(250, 250, 250, 0) 100%) repeat scroll 0% 0% transparent;
 	}
 
 	#content p {
@@ -143,16 +171,15 @@ a {
 		clear: left;
 		float: left;
 		width: 100%;
+		background: #e7e7e7;
 		border-bottom: 1px solid #ddd;
-		color: #eee;
-		background: #38909b;
 		font-size: 18px;
 		font-weight: normal;
 		line-height: 27px;
 		text-transform: uppercase;
 		padding: 0;
-		padding-left: 32px;
 		box-sizing: border-box;
+		text-align: center;
 	}
 
 	#content .track {
@@ -163,58 +190,67 @@ a {
 		color: #555;
 		background: #eee;
 		font-size: 18px;
-		line-height: 18px;
+		line-height: 50px;
 		padding: 0;
-		padding-left: 18px;
+		padding-left: 16px;
 		border-bottom: 1px solid #ddd;
 		box-sizing: border-box;
+		clear: left;
 	}
 
 	#content .nr {
+		color: #a5a5a5;
 		float: left;
-		margin: 5px 18px 5px 0;
-		padding: 10px 15px;
-		color: #eee;
-		background: #1b1b1b;
-		border-radius: 20px;
-		line-height: 20px;
-		font-size: 20px;
+		border-right: 1px solid #ddd;
+		padding-right: 16px;
+		margin-right: 16px;
+		text-align: center;
+		min-width: 14px;
 	}
 
 	#content .title {
 		position: relative;
 		top: 0px;
 		left: 0px;
-		white-space: nowrap;
-		padding: 16px 0;
 		display: block;
+		white-space: nowrap;
+	}
+
+	#content #omg, #content #hc, #content #vgb {
+		display: block;
+		min-height: 100px;
+		border-bottom: 1px solid #ddd;
+		padding-left: 128px;
+	}
+
+	#content #omg h1, #content #hc h1, #content #vgb h1 {
+		padding-top: 26px;
+		line-height: 24px;
+		font-size: 18px;
+		font-weight: normal;
+	}
+
+	#content #omg p, #content #hc p, #content #vgb p {
+		margin: 0;
+		padding: 0;
+		font-size: 13px;
+		line-height: 22px;
+		color: #777;
 	}
 
 	#content #omg {
-		display: block;
-		background: #eee url(../img/omg.png) no-repeat center center;
+		background: #eee url(../img/omg.png) no-repeat 28px center;
 		background-size: 72px 72px;
-		min-height: 100px;
-		text-indent: -9999px;
-		border-bottom: 1px solid #ddd;
 	}
 
 	#content #hc {
-		display: block;
-		background: #eee url(../img/hc.png) no-repeat center center;
+		background: #eee url(../img/hc.png) no-repeat 28px center;
 		background-size: 72px 72px;
-		min-height: 100px;
-		text-indent: -9999px;
-		border-bottom: 1px solid #ddd;
 	}
 
 	#content #vgb {
-		display: block;
-		background: #eee url(../img/vgb.png) no-repeat center center;
-		background-size: 114px 72px;
-		min-height: 100px;
-		text-indent: -9999px;
-		border-bottom: 1px solid #ddd;
+		background: #eee url(../img/vgb.png) no-repeat 16px center;
+		background-size: 90px 72px;
 	}
 
 #footer {
@@ -284,7 +320,7 @@ a {
 	height: 64px;
 	margin: 0;
 	overflow: hidden;
-	background: #896;
+	background: #82982e;
 }
 
 	#footer #progressBar {
@@ -298,22 +334,12 @@ a {
 		border-right: 1px solid #efb;
 	}
 
-	#footer #bufferBar {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		height: 64px;
-		width: 0px;
-		background: #9a7;
-		border-right: 1px solid #bc7;
-	}
-
 	#footer #time {
 		line-height: 64px;
 		display: block;
 		margin: -64px 0 0 0;
 		padding: 0 20px;
-		color: #675;
+		color: #442;
 		float: right;
 		position: relative;
 		z-index: 2;
