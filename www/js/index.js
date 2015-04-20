@@ -175,17 +175,21 @@ function loadVgb() {
 
 /* returns html for a track */
 function makeLink(track) {
-	return '<a title="' + track["title"] + '" onclick="playTrack(\'' + track["url"] + '\');" class="track"><div class="nr">' + track["nr"] + '</div><div class="title">' + track["title"] + '</div></a>';
+	return '<a title="' + track["title"] + '" onclick="playTrack(\'' + track["url"] + '\',\'' + track["title"] + '\');" class="track"><div class="nr">' + track["nr"] + '.</div><div class="title">' + track["title"] + '</div></a>';
 }
 
 /* puts a track in the #playerBox */
-function playTrack(track) {
+function playTrack(track, title) {
 	resetPlayer();
-
-	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + track + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
-
-	showFooter(); // make the player visible
-	initPlay(); // start playback
+	if (navigator.connection.type == Connection.NONE){
+    showError();
+  }
+	else {
+		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + track + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
+		document.getElementById("programinfo").innerHTML = title;
+		initPlay(); // start playback
+		showFooter(); // make the player visible
+	}
 }
 
 /* resets the player UI */
@@ -227,13 +231,17 @@ function moveTo(mouseX){
 function initPlay(){
 	var player = document.getElementById("player");
 
+	// when there is an error
+	player.addEventListener('error', function() {
+		showError();
+	}, false);
+
 	/* when player updates progress time */
 	player.addEventListener("timeupdate", function(){
 		updateProgress();
 	}, false);
 
 	player.addEventListener("ended", onEnded); // when track ends
-	player.addEventListener("error", showError); // when there is an error
 
 	playpause(); // start initial play
 }

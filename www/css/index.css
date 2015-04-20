@@ -128,7 +128,7 @@ a {
 		overflow: hidden;
 		cursor: pointer;
 		background: #fafafa;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid #eaeaea;
 	}
 
 	#content #textbox {
@@ -138,7 +138,7 @@ a {
 		background: #fafafa;
 		margin: 0;
 		padding: 0;
-		padding-top: 20px;
+		padding-top: 16px;
 	}
 
 	#content #overlay {
@@ -157,8 +157,8 @@ a {
 
 	#content p {
 		margin: 0;
-		margin-bottom: 20px;
-		padding: 0 20px;
+		margin-bottom: 18px;
+		padding: 0 18px;
 		line-height: 1.5em;
 	}
 
@@ -186,14 +186,13 @@ a {
 		clear: left;
 		float: left;
 		width: 100%;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid #eaeaea;
 		color: #555;
-		background: #eee;
+		background: #f5f5f5;
 		font-size: 18px;
 		line-height: 50px;
 		padding: 0;
-		padding-left: 16px;
-		border-bottom: 1px solid #ddd;
+		padding-left: 18px;
 		box-sizing: border-box;
 		clear: left;
 	}
@@ -201,11 +200,7 @@ a {
 	#content .nr {
 		color: #a5a5a5;
 		float: left;
-		border-right: 1px solid #ddd;
-		padding-right: 16px;
-		margin-right: 16px;
-		text-align: center;
-		min-width: 14px;
+		padding-right: 9px;
 	}
 
 	#content .title {
@@ -214,6 +209,9 @@ a {
 		left: 0px;
 		display: block;
 		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		padding-right: 9px;
 	}
 
 	#content #omg, #content #hc, #content #vgb {
@@ -235,21 +233,21 @@ a {
 		padding: 0;
 		font-size: 13px;
 		line-height: 22px;
-		color: #777;
+		color: #a5a5a5;
 	}
 
 	#content #omg {
-		background: #eee url(../img/omg.png) no-repeat 28px center;
+		background: #f5f5f5 url(../img/omg.png) no-repeat 28px center;
 		background-size: 72px 72px;
 	}
 
 	#content #hc {
-		background: #eee url(../img/hc.png) no-repeat 28px center;
+		background: #f5f5f5 url(../img/hc.png) no-repeat 28px center;
 		background-size: 72px 72px;
 	}
 
 	#content #vgb {
-		background: #eee url(../img/vgb.png) no-repeat 16px center;
+		background: #f5f5f5 url(../img/vgb.png) no-repeat 16px center;
 		background-size: 90px 72px;
 	}
 
@@ -258,7 +256,7 @@ a {
 	right: 0px;
 	left: 64px;
 	bottom: 0px;
-	font-size: 20px;
+	font-size: 18px;
 	margin: 0;
 	z-index: 3;
 	position: fixed;
@@ -286,7 +284,7 @@ a {
 	position: relative;
 	float: left;
 	background: #eaeaea;
-	border-top: 1px solid #ccc;
+	border-top: 1px solid #dbdbdb;
 }
 
 	#footer p {
@@ -334,29 +332,50 @@ a {
 		border-right: 1px solid #efb;
 	}
 
-	#footer #time {
-		line-height: 64px;
-		display: block;
+	#footer #infotext {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
 		margin: -64px 0 0 0;
-		padding: 0 20px;
-		color: #442;
-		float: right;
-		position: relative;
-		z-index: 2;
 	}
 
-		#footer #time #played {
-			padding: 0px 2px 0px 0px;
-			color: #f9f9f9;
-			font-style: normal;
-			display: inline;
+		#footer #programinfo {
+			line-height: 64px;
+			padding: 0px 10px;
+			color: #fff;
+			z-index: 2;
+			display: table-cell;
+			position: relative;
+			text-align: left;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
-		#footer #time #duration {
-			padding: 0px 0px 0px 2px;
-			font-weight: normal;
-			display: inline;
+		#footer #time {
+			line-height: 64px;
+			padding-right: 10px;
+			color: #442;
+			z-index: 2;
+			display: table-cell;
+			position: relative;
+			text-align: center;
+			width: 110px;
+			z-index: 2;
 		}
+
+			#footer #time #played {
+				padding: 0px 2px 0px 0px;
+				color: #f9f9f9;
+				font-style: normal;
+				display: inline;
+			}
+
+			#footer #time #duration {
+				padding: 0px 0px 0px 2px;
+				font-weight: normal;
+				display: inline;
+			}
 
 #error {
 	position: absolute;
