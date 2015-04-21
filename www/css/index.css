@@ -22,6 +22,13 @@ body {
 	font-size: 16px;
 }
 
+/* Preloading images */
+body:after
+{
+content: url(../img/back.png) url(../img/bible.png);
+display: none;
+}
+
 a {
 	cursor: pointer;
 }
@@ -50,6 +57,17 @@ a {
 		text-indent: -9999px;
 	}
 
+	#header #bibleBtn {
+		position: relative;
+		float: right;
+		background: url(../img/bible.png) no-repeat center center;
+		background-size: 64px 64px;
+		display: block;
+		width: 100px;
+		height: 100px;
+		text-indent: -9999px;
+	}
+
 	#header h1 {
 		float: left;
 		width: auto;
@@ -71,30 +89,27 @@ a {
 		text-indent: -9999px;
 		float: right;
 		min-height: 100px;
+		width: 100px;
 	}
 
 	#header #norea {
 		background: url(../img/noreaglobe.png) no-repeat center center;
 		background-size: 64px 64px;
-		width: 100px;
 	}
 
 	#header #hc {
 		background: url(../img/hc.png) no-repeat center center;
 		background-size: 72px 72px;
-		width: 100px;
 	}
 
 	#header #omg {
 		background: url(../img/omg.png) no-repeat center center;
 		background-size: 72px 72px;
-		width: 100px;
 	}
 
 	#header #vgb {
-		background: url(../img/vgb.png) no-repeat center center;
+		background: url(../img/vgb.png) no-repeat left center;
 		background-size: 90px 72px;
-		width: 120px;
 	}
 
 	#header #toTop {
@@ -139,6 +154,7 @@ a {
 		margin: 0;
 		padding: 0;
 		padding-top: 16px;
+		border-bottom: 1px solid #eaeaea;
 	}
 
 	#content #overlay {
@@ -162,7 +178,6 @@ a {
 		line-height: 1.5em;
 	}
 
-
 	#content a {
 		text-decoration: none;
 	}
@@ -171,7 +186,7 @@ a {
 		clear: left;
 		float: left;
 		width: 100%;
-		background: #e7e7e7;
+		background: #fafafa;
 		border-bottom: 1px solid #ddd;
 		font-size: 18px;
 		font-weight: normal;
@@ -407,3 +422,31 @@ a {
 		color: #fff;
 		display: block;
 	}
+
+#bible {
+	padding: 18px;
+	padding-bottom: 0;
+}
+
+#bible h3{
+	clear: both;
+	text-align: center;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+#bible ul{
+	width: 25%;
+	float: left;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#bible ul li{
+	list-style-type: none;
+	line-height: 37px;
+	font-size: 13px;
+	border-radius: 2px;
+	background: none repeat scroll 0% 0% rgb(255, 255, 255);
+	margin: 4px;
+}
