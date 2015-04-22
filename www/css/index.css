@@ -1,5 +1,5 @@
 * {
-	-webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	margin: 0;
 	padding: 0;
   -webkit-touch-callout: none;
@@ -11,9 +11,9 @@
 }
 
 body {
-	-webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-	-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-	-webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none;
 	height:100%;
 	width:100%;
 	background: #fafafa;
@@ -23,16 +23,28 @@ body {
 }
 
 /* Preloading images */
-body:after
-{
-content: url(../img/back.png) url(../img/bible.png);
-display: none;
+body:after {
+	content: url(../img/back.png) url(../img/bible.png) url(../img/close.png);
+	display: none;
 }
 
 a {
 	cursor: pointer;
 }
 
+a.close {
+	z-index: 2;
+	float: right;
+	display: block;
+	background: url("../img/close.png") no-repeat center center;
+	background-size: 32px 32px;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: -16px;
+	right: 8px;
+	text-indent: -9999px;
+}
 
 #header {
 	z-index: 2;
@@ -186,7 +198,7 @@ a {
 		clear: left;
 		float: left;
 		width: 100%;
-		background: #fafafa;
+		background: #f5f5f5;
 		border-bottom: 1px solid #ddd;
 		font-size: 18px;
 		font-weight: normal;
@@ -203,7 +215,7 @@ a {
 		width: 100%;
 		border-bottom: 1px solid #eaeaea;
 		color: #555;
-		background: #f5f5f5;
+		background: #fafafa;
 		font-size: 18px;
 		line-height: 50px;
 		padding: 0;
@@ -232,8 +244,8 @@ a {
 	#content #omg, #content #hc, #content #vgb {
 		display: block;
 		min-height: 100px;
-		border-bottom: 1px solid #ddd;
 		padding-left: 128px;
+		border-bottom: 1px solid #eaeaea;
 	}
 
 	#content #omg h1, #content #hc h1, #content #vgb h1 {
@@ -252,17 +264,17 @@ a {
 	}
 
 	#content #omg {
-		background: #f5f5f5 url(../img/omg.png) no-repeat 28px center;
+		background: #fafafa url(../img/omg.png) no-repeat 28px center;
 		background-size: 72px 72px;
 	}
 
 	#content #hc {
-		background: #f5f5f5 url(../img/hc.png) no-repeat 28px center;
+		background: #fafafa url(../img/hc.png) no-repeat 28px center;
 		background-size: 72px 72px;
 	}
 
 	#content #vgb {
-		background: #f5f5f5 url(../img/vgb.png) no-repeat 16px center;
+		background: #fafafa url(../img/vgb.png) no-repeat 16px center;
 		background-size: 90px 72px;
 	}
 
@@ -301,6 +313,10 @@ a {
 	background: #eaeaea;
 	border-top: 1px solid #dbdbdb;
 }
+
+	#footer #closeFooter {
+		display: none;
+	}
 
 	#footer p {
 		display: none;
@@ -351,7 +367,6 @@ a {
 		display: table;
 		table-layout: fixed;
 		width: 100%;
-		margin: -64px 0 0 0;
 	}
 
 		#footer #programinfo {
@@ -416,16 +431,18 @@ a {
 		display: block;
 	}
 
-	#error a {
-		float:right;
-		margin: 20px;
-		color: #fff;
-		display: block;
-	}
-
 #bible {
 	padding: 18px;
 	padding-bottom: 0;
+}
+
+#bible #GT:after, #bible #NT:after{
+	content: "";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+	padding-bottom: 20px;
 }
 
 #bible h3{
@@ -435,11 +452,27 @@ a {
 	text-transform: uppercase;
 }
 
+#bible a{
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+
+#bible a p{
+	list-style-type: none;
+	line-height: 50px;
+	font-size: 13px;
+	border-radius: 2px;
+	background: #fff;
+	border: 1px solid #eaeaea;
+	margin: 0 4px 8px 4px;
+	padding: 0;
+}
+
 #bible ul{
 	width: 25%;
 	float: left;
 	text-align: center;
-	margin-bottom: 20px;
 }
 
 #bible ul li{
@@ -447,6 +480,7 @@ a {
 	line-height: 37px;
 	font-size: 13px;
 	border-radius: 2px;
-	background: none repeat scroll 0% 0% rgb(255, 255, 255);
-	margin: 4px;
+	background: #fff;
+	border: 1px solid #eaeaea;
+	margin: 0 4px 8px 4px;
 }

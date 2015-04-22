@@ -66,7 +66,7 @@ function backButton(){
 /* loads main menu into #content */
 function loadMenu(){
 	isMain = true;
-	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Vi är verksamma både i Sverige och internationellt. I Sverige utvecklar vi olika mediabaserade koncept och verktyg som enskilda kristna, församlingar och organisationer kan använda i sitt evangelisations- och missionsarbete.</p>", "loadInfo()") + '<a onclick="loadOmg();" id="omg"><h1>Ögonblick med Gud</h1><p>Korta andakter på 2 minuter</p></a><a onclick="loadHc();" id="hc"><h1>Hannas Café</h1><p>Kvinnors berättelser om livet</p></a><a onclick="loadVgb();" id="vgb"><h1>Vägen genom Bibeln</h1><p>Bibelutläggning i 1245 program</p></a>'
+	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") + '<a onclick="loadOmg();" id="omg"><h1>Ögonblick med Gud</h1><p>Korta andakter på 2 minuter</p></a><a onclick="loadHc();" id="hc"><h1>Hannas Café</h1><p>Kvinnors berättelser om livet</p></a><a onclick="loadVgb();" id="vgb"><h1>Vägen genom Bibeln</h1><p>Bibelutläggning i 1245 program</p></a>'
 	document.getElementById("content").innerHTML = mainMenu;
 	var mainHeader = '<a onclick="loadInfo();" id="home">Norea Sverige</a>';
 	document.getElementById("header").innerHTML = mainHeader;
@@ -119,14 +119,31 @@ function loadInfo(){
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="norea" class="headerLogo">Om Norea Sverige</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	document.getElementById("header").innerHTML = backHeader;
 
-	var info = '<div id="textbox"><p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Vi är verksamma både i Sverige och internationellt. I Sverige utvecklar vi olika mediabaserade koncept och verktyg som enskilda kristna, församlingar och organisationer kan använda i sitt evangelisations- och missionsarbete.</p><p>Internationellt samarbetar vi med två stora organisationer: Trans World Radio (TWR), som sänder kristen radio på mer än 230 språk och dialekter i 160 länder, och SAT-7, som sänder satellit-TV i Nordafrika och Mellanöstern.</p><p>Om du undrar något eller vill komma i kontakt med oss är du alltid välkommen att höra av dig.</p><p><b>Norea Sverige</b></br>Östergatan 20</br>262 31 Ängelholm</br></br>Telefon: 0431-414750</br>Epost: norea@noreasverige.se</br>Webb: noreasverige.se</p></div>';
+	var info = '<div id="textbox"><p>'+
+	'<b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.'+
+	'</p><p>'+
+	'För att nå så många som möjligt är appen gratis, men allt har ju en kostnad... Vill du vara med och bidra till utvecklingen av nya programserier? Swisha en gåva, sätt in pengar på vårt PlusGiro-konto eller ge med kort på vår hemsida!'+
+	'</p><p>'+
+	'Swish: <i>1235142054</i><br/>'+
+	'PlusGiro: <i>52 41 80-7</i><br/>'+
+	'Webb: <i>noreasverige.se</i><br/>'+
+	'</p><p>'+
+	'För mer info om Norea eller för att beställa våra program så finns vi här:'+
+	'</p><p>'+
+	'<b>Norea Sverige</b><br/>'+
+	'Östergatan 20<br/>'+
+	'262 31 Ängelholm<br/>'+
+	'</p><p>'+
+	'Telefon: <i>0431-414750</i><br/>'+
+	'Epost: <i>norea@noreasverige.se</i>'+
+	'</p></div>';
 	document.getElementById("content").innerHTML = info;
-
 }
 
 /* Loads "Ögonblick med Gud" info and tracks into #content */
 function loadOmg(){
 	isMain = false;
+	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="omg" class="headerLogo">Ögonblick med Gud</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	document.getElementById("header").innerHTML = backHeader;
@@ -142,6 +159,7 @@ function loadOmg(){
 /* Loads "Hannas Café" info and tracks into #content */
 function loadHc(){
 	isMain = false;
+	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="hc" class="headerLogo">Hannas Café</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	document.getElementById("header").innerHTML = backHeader;
@@ -156,6 +174,7 @@ function loadHc(){
 /* Loads "Vägen genom Bibeln" info and tracks into #content */
 function loadVgb(id){
 	isMain = false;
+	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="vgb" class="headerLogo">Vägen genom Bibeln</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a><a onclick="loadBible();" id="bibleBtn">Visa Bibel</a>';
 	document.getElementById("header").innerHTML = backHeader;
@@ -183,8 +202,7 @@ function loadVgb(id){
 		}
 		document.getElementById("content").innerHTML = newList;
 		if(id){
-			document.getElementById(id).scrollIntoView(true);
-			window.scrollBy(0,-100);
+			window.scrollTo(0, document.getElementById(id).offsetTop-100);
 		}
 	},1);
 }
@@ -196,108 +214,220 @@ function makeLink(track){
 
 function loadBible(){
 	isMain = false;
-	window.scrollTo(0,0);
+	toTop();
 	var backHeader = '<a onclick="loadVgb();" id="back">Tillbaka till VGB</a><h1 id="bibleBtn" class="headerLogo">Bibeln</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	document.getElementById("header").innerHTML = backHeader;
 
 	var newList = ''+
 		'<div id="bible">'+
-			'<div class="GT">'+
+			'<div id="GT">'+
 				'<h3>Gamla Testamentet</h3>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Första Moseboken\');" title="Första Moseboken">1 Mos</a></li>'+
-					'<li><a onclick="goTo(\'Andra Moseboken\');" title="Andra Moseboken">2 Mos</a></li>'+
-					'<li><a onclick="goTo(\'Tredje Moseboken\');" title="Tredje Moseboken">3 Mos</a></li>'+
-					'<li><a onclick="goTo(\'Fjärde Moseboken\');" title="Fjärde Moseboken">4 Mos</a></li>'+
-					'<li><a onclick="goTo(\'Femte Moseboken\');" title="Femte Moseboken">5 Mos</a></li>'+
-					'<li><a onclick="goTo(\'Josua\');" title="Josua">Jos</a></li>'+
-					'<li><a onclick="goTo(\'Domarboken\');" title="Domarboken">Dom</a></li>'+
-					'<li><a onclick="goTo(\'Rut\');" title="Rut">Rut</a></li>'+
-					'<li><a onclick="goTo(\'Första Samuelsboken\');" title="Första Samuelsboken">1 Sam</a></li>'+
-					'<li><a onclick="goTo(\'Andra Samuelsboken\');" title="Andra Samuelsboken">2 Sam</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Första Kungaboken\');" title="Första Kungaboken">1 Kung</a></li>'+
-					'<li><a onclick="goTo(\'Andra Kungaboken\');" title="Andra Kungaboken">2 Kung</a></li>'+
-					'<li><a onclick="goTo(\'Första Krönikeboken\');" title="Första Krönikeboken">1 Krön</a></li>'+
-					'<li><a onclick="goTo(\'Andra Krönikeboken\');" title="Andra Krönikeboken">2 Krön</a></li>'+
-					'<li><a onclick="goTo(\'Esra\');" title="Esra">Esra</a></li>'+
-					'<li><a onclick="goTo(\'Nehemja\');" title="Nehemja">Neh</a></li>'+
-					'<li><a onclick="goTo(\'Ester\');" title="Ester">Ester</a></li>'+
-					'<li><a onclick="goTo(\'Job\');" title="Job">Job</a></li>'+
-					'<li><a onclick="goTo(\'Psaltaren\');" title="Psaltaren">Ps</a></li>'+
-					'<li><a onclick="goTo(\'Ordspråksboken\');" title="Ordspråksboken">Ords</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Predikaren\');" title="Predikaren">Pred</a></li>'+
-					'<li><a onclick="goTo(\'Höga Visan\');" title="Höga Visan">Höga V</a></li>'+
-					'<li><a onclick="goTo(\'Jesaja\');" title="Jesaja">Jes</a></li>'+
-					'<li><a onclick="goTo(\'Jeremia\');" title="Jeremia">Jer</a></li>'+
-					'<li><a onclick="goTo(\'Klagovisorna\');" title="Klagovisorna">Klag</a></li>'+
-					'<li><a onclick="goTo(\'Hesekiel\');" title="Hesekiel">Hes</a></li>'+
-					'<li><a onclick="goTo(\'Daniel\');" title="Daniel">Dan</a></li>'+
-					'<li><a onclick="goTo(\'Hosea\');" title="Hosea">Hos</a></li>'+
-					'<li><a onclick="goTo(\'Joel\');" title="Joel">Joel</a></li>'+
-					'<li><a onclick="goTo(\'Amos\');" title="Amos">Amos</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Obadja\');" title="Obadja">Ob</a></li>'+
-					'<li><a onclick="goTo(\'Jona\');" title="Jona">Jona</a></li>'+
-					'<li><a onclick="goTo(\'Mika\');" title="Mika">Mika</a></li>'+
-					'<li><a onclick="goTo(\'Nahum\');" title="Nahum">Nah</a></li>'+
-					'<li><a onclick="goTo(\'Habackuk\');" title="Habackuk">Hab</a></li>'+
-					'<li><a onclick="goTo(\'Sefanja\');" title="Sefanja">Sef</a></li>'+
-					'<li><a onclick="goTo(\'Haggai\');" title="Haggai">Hagg</a></li>'+
-					'<li><a onclick="goTo(\'Sakarja\');" title="Sakarja">Sak</a></li>'+
-					'<li><a onclick="goTo(\'Malaki\');" title="Malaki">Mal</a></li>'+
-				'</ul>'+
+				'<a onclick="loadVgb(\'Första Moseboken\');" title="Första Moseboken">'+
+					'<p>1 Mos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Moseboken\');" title="Andra Moseboken">'+
+					'<p>2 Mos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Tredje Moseboken\');" title="Tredje Moseboken">'+
+					'<p>3 Mos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Fjärde Moseboken\');" title="Fjärde Moseboken">'+
+					'<p>4 Mos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Femte Moseboken\');" title="Femte Moseboken">'+
+					'<p>5 Mos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Josua\');" title="Josua">'+
+					'<p>Jos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Domarboken\');" title="Domarboken">'+
+					'<p>Dom</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Rut\');" title="Rut">'+
+					'<p>Rut</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Samuelsboken\');" title="Första Samuelsboken">'+
+					'<p>1 Sam</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Samuelsboken\');" title="Andra Samuelsboken">'+
+					'<p>2 Sam</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Kungaboken\');" title="Första Kungaboken">'+
+					'<p>1 Kung</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Kungaboken\');" title="Andra Kungaboken">'+
+					'<p>2 Kung</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Krönikeboken\');" title="Första Krönikeboken">'+
+					'<p>1 Krön</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Krönikeboken\');" title="Andra Krönikeboken">'+
+					'<p>2 Krön</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Esra\');" title="Esra">'+
+					'<p>Esra</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Nehemja\');" title="Nehemja">'+
+					'<p>Neh</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Ester\');" title="Ester">'+
+					'<p>Ester</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Job\');" title="Job">'+
+					'<p>Job</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Psaltaren\');" title="Psaltaren">'+
+					'<p>Ps</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Ordspråksboken\');" title="Ordspråksboken">'+
+					'<p>Ords</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Predikaren\');" title="Predikaren">'+
+					'<p>Pred</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Höga Visan\');" title="Höga Visan">'+
+					'<p>Höga V</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Jesaja\');" title="Jesaja">'+
+					'<p>Jes</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Jeremia\');" title="Jeremia">'+
+					'<p>Jer</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Klagovisorna\');" title="Klagovisorna">'+
+					'<p>Klag</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Hesekiel\');" title="Hesekiel">'+
+					'<p>Hes</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Daniel\');" title="Daniel">'+
+					'<p>Dan</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Hosea\');" title="Hosea">'+
+					'<p>Hos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Joel\');" title="Joel">'+
+					'<p>Joel</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Amos\');" title="Amos">'+
+					'<p>Amos</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Obadja\');" title="Obadja">'+
+					'<p>Ob</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Jona\');" title="Jona">'+
+					'<p>Jona</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Mika\');" title="Mika">'+
+					'<p>Mika</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Nahum\');" title="Nahum">'+
+					'<p>Nah</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Habackuk\');" title="Habackuk">'+
+					'<p>Hab</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Sefanja\');" title="Sefanja">'+
+					'<p>Sef</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Haggai\');" title="Haggai">'+
+					'<p>Hagg</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Sakarja\');" title="Sakarja">'+
+					'<p>Sak</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Malaki\');" title="Malaki">'+
+					'<p>Mal</p>'+
+				'</a>'+
+				''+
 			'</div>'+
-			'<div class="NT">'+
+			'<div id="NT">'+
 				'<h3>Nya Testamentet</h3>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Matteusevangeliet\');" title="Matteusevangeliet">Matt</a></li>'+
-					'<li><a onclick="goTo(\'Markusevangeliet\');" title="Markusevangeliet">Mark</a></li>'+
-					'<li><a onclick="goTo(\'Lukasevangeliet\');" title="Lukasevangeliet">Luk</a></li>'+
-					'<li><a onclick="goTo(\'Johannesevangeliet\');" title="Johannesevangeliet">Joh</a></li>'+
-					'<li><a onclick="goTo(\'Apostlagärningarna\');" title="Apostlagärningarna">Apg</a></li>'+
-					'<li><a onclick="goTo(\'Romarbrevet\');" title="Romarbrevet">Rom</a></li>'+
-					'<li><a onclick="goTo(\'Första Korintierbrevet\');" title="Första Korintierbrevet">1 Kor</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Andra Korintierbrevet\');" title="Andra Korintierbrevet">2 Kor</a></li>'+
-					'<li><a onclick="goTo(\'Galaterbrevet\');" title="Galaterbrevet">Gal</a></li>'+
-					'<li><a onclick="goTo(\'Efesierbrevet\');" title="Efesierbrevet">Ef</a></li>'+
-					'<li><a onclick="goTo(\'Filipperbrevet\');" title="Filipperbrevet">Fil</a></li>'+
-					'<li><a onclick="goTo(\'Kolosserbrevet\');" title="Kolosserbrevet">Kol</a></li>'+
-					'<li><a onclick="goTo(\'Första Tessalonikerbrevet\');" title="Första Tessalonikerbrevet">1 Tess</a></li>'+
-					'<li><a onclick="goTo(\'Andra Tessalonikerbrevet\');" title="Andra Tessalonikerbrevet">2 Tess</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Första Timoteusbrevet\');" title="Första Timoteusbrevet">1 Tim</a></li>'+
-					'<li><a onclick="goTo(\'Andra Timoteusbrevet\');" title="Andra Timoteusbrevet">2 Tim</a></li>'+
-					'<li><a onclick="goTo(\'Brevet till Titus\');" title="Brevet till Titus">Tit</a></li>'+
-					'<li><a onclick="goTo(\'Brevet till Filemon\');" title="Brevet till Filemom">Filem</a></li>'+
-					'<li><a onclick="goTo(\'Hebreerbrevet\');" title="Hebreerbrevet">Hebr</a></li>'+
-					'<li><a onclick="goTo(\'Jakobs brev\');" title="Jakobs brev">Jak</a></li>'+
-					'<li><a onclick="goTo(\'Första Petrusbrevet\');" title="Första Petrusbrevet">1 Petr</a></li>'+
-				'</ul>'+
-				'<ul>'+
-					'<li><a onclick="goTo(\'Andra Petrusbrevet\');" title="Andra Petrusbrevet">2 Petr</a></li>'+
-					'<li><a onclick="goTo(\'Första Johannesbrevet\');" title="Första Johannesbrevet">1 Joh</a></li>'+
-					'<li><a onclick="goTo(\'Andra och tredje Johannesbrevet\');" title="Andra Johannesbrevet">2 Joh</a></li>'+
-					'<li><a onclick="goTo(\'Andra och tredje Johannesbrevet\');" title="Tredje Johannesbrevet">3 Joh</a></li>'+
-					'<li><a onclick="goTo(\'Judas brev\');" title="Judas brev">Jud</a></li>'+
-					'<li><a onclick="goTo(\'Uppenbarelseboken\');" title="Uppenbarelseboken">Upp</a></li>'+
-				'</ul>'+
+				'<a onclick="loadVgb(\'Matteusevangeliet\');" title="Matteusevangeliet">'+
+					'<p>Matt</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Markusevangeliet\');" title="Markusevangeliet">'+
+					'<p>Mark</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Lukasevangeliet\');" title="Lukasevangeliet">'+
+					'<p>Luk</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Johannesevangeliet\');" title="Johannesevangeliet">'+
+					'<p>Joh</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Apostlagärningarna\');" title="Apostlagärningarna">'+
+					'<p>Apg</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Romarbrevet\');" title="Romarbrevet">'+
+					'<p>Rom</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Korintierbrevet\');" title="Första Korintierbrevet">'+
+					'<p>1 Kor</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Korintierbrevet\');" title="Andra Korintierbrevet">'+
+					'<p>2 Kor</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Galaterbrevet\');" title="Galaterbrevet">'+
+					'<p>Gal</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Efesierbrevet\');" title="Efesierbrevet">'+
+					'<p>Ef</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Filipperbrevet\');" title="Filipperbrevet">'+
+					'<p>Fil</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Kolosserbrevet\');" title="Kolosserbrevet">'+
+					'<p>Kol</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Tessalonikerbrevet\');" title="Första Tessalonikerbrevet">'+
+					'<p>1 Tess</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Tessalonikerbrevet\');" title="Andra Tessalonikerbrevet">'+
+					'<p>2 Tess</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Timoteusbrevet\');" title="Första Timoteusbrevet">'+
+					'<p>1 Tim</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Timoteusbrevet\');" title="Andra Timoteusbrevet">'+
+					'<p>2 Tim</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Brevet till Titus\');" title="Brevet till Titus">'+
+					'<p>Tit</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Brevet till Filemon\');" title="Brevet till Filemom">'+
+					'<p>Filem</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Hebreerbrevet\');" title="Hebreerbrevet">'+
+					'<p>Hebr</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Jakobs brev\');" title="Jakobs brev">'+
+					'<p>Jak</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Petrusbrevet\');" title="Första Petrusbrevet">'+
+					'<p>1 Petr</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra Petrusbrevet\');" title="Andra Petrusbrevet">'+
+					'<p>2 Petr</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Första Johannesbrevet\');" title="Första Johannesbrevet">'+
+					'<p>1 Joh</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra och tredje Johannesbrevet\');" title="Andra Johannesbrevet">'+
+					'<p>2 Joh</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Andra och tredje Johannesbrevet\');" title="Tredje Johannesbrevet">'+
+					'<p>3 Joh</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Judas brev\');" title="Judas brev">'+
+					'<p>Jud</p>'+
+				'</a>'+
+				'<a onclick="loadVgb(\'Uppenbarelseboken\');" title="Uppenbarelseboken">'+
+					'<p>Upp</p>'+
+				'</a>'+
 			'</div>'+
 		'</div>';
 	document.getElementById("content").innerHTML = newList;
 }
-
-function goTo(id){
-	loadVgb(id);
-}
-
 
 /* puts a track in the #playerBox */
 function playTrack(track, title){
@@ -322,16 +452,16 @@ function resetPlayer(){
 
 /* adds listeners for click and drag to the scrubber bar */
 function uiListener(){
-	var footer = document.getElementById("footer");
+	var scrubber = document.getElementById("scrubber");
 
-	footer.addEventListener("click", function(e){
+	scrubber.addEventListener("click", function(e){
 		var mouseX = e.clientX-64; // 64 is the width of th play button
 		if(mouseX>0){
 			moveTo(mouseX);
 		}
 	});
 
-  footer.addEventListener("touchmove", function(e){
+  scrubber.addEventListener("touchmove", function(e){
     var mouseX = e.changedTouches[0].clientX-64;
     if(mouseX>0){
 			moveTo(mouseX);
@@ -408,6 +538,7 @@ function playpause(){
 function pauseButton(){
 	document.getElementById("pause").style.display = 'block';
 	document.getElementById("play").style.display = 'none';
+	document.getElementById("closeFooter").style.display = 'none';
 	isPlaying = true;
 }
 
@@ -415,6 +546,7 @@ function pauseButton(){
 function playButton(){
 	document.getElementById("pause").style.display = 'none';
 	document.getElementById("play").style.display = 'block';
+	document.getElementById("closeFooter").style.display = 'block';
 	isPlaying = false;
 }
 
