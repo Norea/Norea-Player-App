@@ -1,7 +1,8 @@
 var isMain = false;
 var isPlaying = false;
 var program = "";
-var text = "";
+var headerHeight = 100;
+var footerHeight = 64;
 
 if(document != undefined){
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -12,9 +13,16 @@ function onDeviceReady(){
 
 	// checks if we need to compensate for iOS status bar
 	if(window.device.platform.toLowerCase() == "ios" && parseFloat(window.device.version) >= 7.0){
-		document.getElementById("header").style["padding-top"] = "20px";
-		document.getElementById("content").style["margin-top"] = "120px";
+		document.getElementById('header').style['padding-top'] = "20px";
   }
+
+	var headerStyle = window.getComputedStyle(document.getElementById('header'));
+	headerHeight = parseInt(headerStyle.getPropertyValue('height')) + parseInt(headerStyle.getPropertyValue('padding-top'));
+	document.getElementById('content').style['margin-top'] = headerHeight+"px";
+
+	var footerStyle = window.getComputedStyle(document.getElementById('footer'));
+	footerHeight = parseInt(footerStyle.getPropertyValue('height'));
+
 
 	// hide splash screen
 	cordova.exec(null, null, "SplashScreen", "hide", []);
@@ -66,10 +74,31 @@ function backButton(){
 /* loads main menu into #content */
 function loadMenu(){
 	isMain = true;
-	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") + '<a onclick="loadOmg();" id="omg"><h1>Ögonblick med Gud</h1><p>Korta andakter på 2 minuter</p></a><a onclick="loadHc();" id="hc"><h1>Hannas Café</h1><p>Kvinnors berättelser om livet</p></a><a onclick="loadVgb();" id="vgb"><h1>Vägen genom Bibeln</h1><p>Bibelutläggning i 1245 program</p></a>'
+	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") +
+	'<div id="center">'+
+		'<a onclick="loadOmg();" id="omg">'+
+			'<h1>Ögonblick med Gud</h1>'+
+			'<p>Korta andakter på 2 minuter</p>'+
+		'</a>'+
+	'</div>'+
+	'<div id="center">'+
+		'<a onclick="loadHc();" id="hc">'+
+			'<h1>Hannas Café</h1>'+
+			'<p>Kvinnors berättelser om livet</p>'+
+		'</a>'+
+	'</div>'+
+	'<div id="center">'+
+		'<a onclick="loadVgb();" id="vgb">'+
+			'<h1>Vägen genom Bibeln</h1>'+
+			'<p>Bibelutläggning i 1245 program</p>'+
+		'</a>'+
+	'</div>';
 	document.getElementById("content").innerHTML = mainMenu;
 	var mainHeader = '<a onclick="loadInfo();" id="home">Norea Sverige</a>';
-	document.getElementById("header").innerHTML = mainHeader;
+	var header = document.getElementById("header")
+	header.innerHTML = mainHeader;
+	header.style["background"] = "#82982e";
+  header.style["border-bottom"] = "1px solid #774";
 }
 
 /* returns the HTML for a hide box */
@@ -80,7 +109,6 @@ function makeHideBox(content, action){
 /* decides if the "to top" button should be changed */
 var showsTopBtn = false;
 function scroll(){
-	console.log("scroll!");
 	if(!isMain){
 		if(window.scrollY>500){
 			if(!showsTopBtn){ // prevents changing style at every event call
@@ -117,7 +145,10 @@ function loadInfo(){
 	isMain = false;
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="norea" class="headerLogo">Om Norea Sverige</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	document.getElementById("header").innerHTML = backHeader;
+	var header = document.getElementById("header")
+	header.innerHTML = backHeader;
+	header.style["background"] = "#eaeaea";
+  header.style["border-bottom"] = "1px solid #ccc";
 
 	var info = '<div id="textbox"><p>'+
 	'<b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.'+
@@ -146,7 +177,10 @@ function loadOmg(){
 	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="omg" class="headerLogo">Ögonblick med Gud</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	document.getElementById("header").innerHTML = backHeader;
+	var header = document.getElementById("header")
+	header.innerHTML = backHeader;
+	header.style["background"] = "#eaeaea";
+  header.style["border-bottom"] = "1px solid #ccc";
 
 	var newList = '<div id="textbox"><p><b>Ögonblick med Gud</b> är en programserie med små korta andakter som kan fungera som en hjälp att förstå mer om Guds kärlek. Oavsett om du har hittat regelbundenhet i ditt andaktsliv eller om du fortfarande kämpar kan det här programmet hjälpa dig att ta tid för Gud.</p></div>';
 	for(var i=0; i<program.omg.length; i++){
@@ -162,7 +196,10 @@ function loadHc(){
 	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="hc" class="headerLogo">Hannas Café</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	document.getElementById("header").innerHTML = backHeader;
+	var header = document.getElementById("header")
+	header.innerHTML = backHeader;
+	header.style["background"] = "#eaeaea";
+  header.style["border-bottom"] = "1px solid #ccc";
 
 	var newList = '<div id="textbox"><p><b>Hannas Café</b> är en programserie där en mängd kvinnor delar med sig av olika livssituationer som drabbat dem. Det gemensamma för alla vittnesbörd är upplevelsen av hur Gud, mitt i all hopplöshet, grep in och gjorde det trasiga helt.</p></div>';
 	for(var i=0; i<program.hc.length; i++){
@@ -177,7 +214,10 @@ function loadVgb(id){
 	toTop();
 
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="vgb" class="headerLogo">Vägen genom Bibeln</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a><a onclick="loadBible();" id="bibleBtn">Visa Bibel</a>';
-	document.getElementById("header").innerHTML = backHeader;
+	var header = document.getElementById("header")
+	header.innerHTML = backHeader;
+	header.style["background"] = "#eaeaea";
+  header.style["border-bottom"] = "1px solid #ccc";
 
 	var newList = '<div id="textbox"><p><b>Vägen genom Bibeln</b> är en programserie som går igenom hela Bibeln från pärm till pärm i 1245 halvtimmeslånga program. Det går när som helst att hoppa på resan och när Uppenbarelsebokens sista kapitel är läst börjar serien om igen i 1 Mosebok.</p></div>';
 
@@ -202,7 +242,7 @@ function loadVgb(id){
 		}
 		document.getElementById("content").innerHTML = newList;
 		if(id){
-			window.scrollTo(0, document.getElementById(id).offsetTop-100);
+			window.scrollTo(0, document.getElementById(id).offsetTop-headerHeight-1);
 		}
 	},1);
 }
@@ -455,14 +495,14 @@ function uiListener(){
 	var scrubber = document.getElementById("scrubber");
 
 	scrubber.addEventListener("click", function(e){
-		var mouseX = e.clientX-64; // 64 is the width of th play button
+		var mouseX = e.clientX-footerHeight;
 		if(mouseX>0){
 			moveTo(mouseX);
 		}
 	});
 
   scrubber.addEventListener("touchmove", function(e){
-    var mouseX = e.changedTouches[0].clientX-64;
+    var mouseX = e.changedTouches[0].clientX-footerHeight;
     if(mouseX>0){
 			moveTo(mouseX);
 		}
@@ -558,7 +598,7 @@ function onEnded(){
 
 /* shows the footer where the player is */
 function showFooter(){
-	document.getElementById("content").style["margin-bottom"] = "64px"; // adds extra margin at the bottom
+	document.getElementById("content").style["margin-bottom"] = footerHeight+"px"; // adds extra margin at the bottom
 	document.getElementById("error").style["display"] = "none"; // hides error message
 	document.getElementById("footer").style["display"] = "block"; // shows footer
 }
@@ -567,11 +607,12 @@ function showFooter(){
 function closeFooter(){
 	document.getElementById("content").style["margin-bottom"] = "0px"; // removes extra margin at the bottom
 	document.getElementById("footer").style["display"] = "none"; // hides footer
+	document.getElementById("playerBox").innerHTML = ''; // remove audio tag from content
 }
 
 /* shows the error message */
 function showError(){
-	document.getElementById("content").style["margin-bottom"] = "64px"; // adds extra margin at the bottom
+	document.getElementById("content").style["margin-bottom"] = footerHeight+"px"; // adds extra margin at the bottom
 	document.getElementById("footer").style["display"] = "none"; // hides footer containing the player
 	document.getElementById("error").style["display"] = "block"; // shows error message
 }

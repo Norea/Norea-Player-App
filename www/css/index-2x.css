@@ -1,0 +1,222 @@
+body {
+	font-size: 32px;
+}
+
+a.close {
+	background-size: 64px 64px;
+	width: 64px;
+	height: 64px;
+	top: -32px;
+	right: 16px;
+}
+
+#header {
+	height: 200px;
+}
+
+	#header #back {
+		background-size: 128px 128px;
+		width: 200px;
+		height: 200px;
+	}
+
+	#header #bibleBtn {
+		background-size: 128px 128px;
+		width: 200px;
+		height: 200px;
+	}
+
+	#header #home {
+		background-size: 438px 128px;
+		height: 200px;
+	}
+
+	#header .headerLogo {
+		min-height: 200px;
+		width: 200px;
+	}
+
+	#header #norea {
+		background-size: 128px 128px;
+	}
+
+	#header #hc {
+		background-size: 144px 144px;
+	}
+
+	#header #omg {
+		background-size: 144px 144px;
+	}
+
+	#header #vgb {
+		background-size: 180px 144px;
+	}
+
+	#header #toTop {
+		background-size: 128px 128px;
+		width: 200px;
+		height: 200px;
+	}
+
+
+#content {
+	margin-top: 200px;
+}
+
+	#content #hidebox {
+		height: 200px;
+	}
+
+	#content #textbox {
+		padding-top: 32px;
+	}
+
+	#content #overlay {
+		height: 200px;
+	}
+
+	#content p {
+		margin-bottom: 36px;
+		padding: 0 36px;
+	}
+
+	#content h2 {
+		font-size: 36px;
+		line-height: 54px;
+	}
+
+	#content .track {
+		font-size: 36px;
+		line-height: 100px;
+		padding-left: 36px;
+	}
+
+	#content .nr {
+		padding-right: 18px;
+	}
+
+	#content .title {
+		padding-right: 18px;
+	}
+
+	#content #omg, #content #hc, #content #vgb {
+		min-height: 200px;
+		padding-left: 256px;
+		width: 384px;
+	}
+
+	#content #omg h1, #content #hc h1, #content #vgb h1 {
+		padding-top: 52px;
+		line-height: 48px;
+		font-size: 36px;
+	}
+
+	#content #omg p, #content #hc p, #content #vgb p {
+		font-size: 26px;
+		line-height: 44px;
+	}
+
+	#content #omg {
+		background-size: 144px 144px;
+	}
+
+	#content #hc {
+		background-size: 144px 144px;
+	}
+
+	#content #vgb {
+		background-size: 180px 144px;
+	}
+
+#footer {
+	font-size: 36px;
+	height: 128px;
+	margin-left: 128px;
+}
+
+#footer #play-pause {
+	width: 128px;
+	height: 128px;
+	padding: 16px;
+	margin: -128px 0px 0px -128px;
+	width: 128px;
+}
+
+	#footer p {
+		width: 96px;
+		height: 96px;
+	}
+
+	#footer #play {
+		background-size: 96px 192px;
+		width: 96px;
+		height: 96px;
+	}
+
+	#footer #pause {
+		background-size: 96px 192px;
+		width: 96px;
+		height: 96px;
+	}
+
+#footer #scrubber {
+	height: 128px;
+}
+
+	#footer #progressBar {
+		height: 128px;
+	}
+
+		#footer #programinfo {
+			line-height: 128px;
+			padding: 0px 20px;
+		}
+
+		#footer #time {
+			line-height: 128px;
+			padding-right: 20px;
+			width: 220px;
+		}
+
+			#footer #time #played {
+				padding: 0px 4px 0px 0px;
+			}
+
+			#footer #time #duration {
+				padding: 0px 0px 0px 4px;
+			}
+
+#error {
+	font-size: 40px;
+	height: 128px;
+}
+
+	#error p {
+		margin: 40px;
+	}
+
+#bible {
+	padding: 36px;
+}
+
+#bible #GT:after, #bible #NT:after{
+	padding-bottom: 40px;
+}
+
+#bible h3{
+	margin-bottom: 20px;
+}
+
+#bible a p{
+	line-height: 100px;
+	font-size: 26px;
+	border-radius: 4px;
+	margin: 0 8px 16px 8px;
+}
+
+#bible ul li{
+	line-height: 74px;
+	font-size: 26px;
+	border-radius: 4px;
+	margin: 0 8px 16px 8px;
+}

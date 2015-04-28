@@ -89,7 +89,7 @@ a.close {
 
 	#header #home {
 		display: block;
-		background: #82982e url(../img/norealogo-vit.png) no-repeat center center;
+		background: url(../img/norealogo-vit.png) no-repeat center center;
 		background-size: 219px 64px;
 		width: 100%;
 		height: 100px;
@@ -241,11 +241,17 @@ a.close {
 		padding-right: 9px;
 	}
 
+	#content #center {
+		border-bottom: 1px solid #EAEAEA;
+		width: 100%;
+	}
+
 	#content #omg, #content #hc, #content #vgb {
 		display: block;
 		min-height: 100px;
 		padding-left: 128px;
-		border-bottom: 1px solid #eaeaea;
+		width: 192px;
+		margin: 0 auto;
 	}
 
 	#content #omg h1, #content #hc h1, #content #vgb h1 {
@@ -279,17 +285,14 @@ a.close {
 	}
 
 #footer {
-	position: absolute;
-	right: 0px;
-	left: 64px;
-	bottom: 0px;
-	font-size: 18px;
-	margin: 0;
 	z-index: 3;
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
+	font-size: 18px;
 	height: 64px;
+	position: fixed;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	margin: 0;
 	margin-left: 64px;
 	cursor: pointer;
 	display: none;
