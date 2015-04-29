@@ -4,6 +4,7 @@ var program = "";
 var headerHeight = 100;
 var footerHeight = 64;
 
+
 if(document != undefined){
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
@@ -23,7 +24,6 @@ function onDeviceReady(){
 	var footerStyle = window.getComputedStyle(document.getElementById('footer'));
 	footerHeight = parseInt(footerStyle.getPropertyValue('height'));
 
-
 	// hide splash screen
 	cordova.exec(null, null, "SplashScreen", "hide", []);
 
@@ -40,6 +40,7 @@ function onDeviceReady(){
 		document.addEventListener("backbutton", backButton, false);
 
 		uiListener(); // adds listener for scrubber bar
+
 	},1);
 }
 
@@ -78,19 +79,25 @@ function loadMenu(){
 	'<div id="center">'+
 		'<a onclick="loadOmg();" id="omg">'+
 			'<h1>Ögonblick med Gud</h1>'+
-			'<p>Korta andakter på 2 minuter</p>'+
+			'<p>Korta andakter på ca. 2 minuter</p>'+
 		'</a>'+
 	'</div>'+
 	'<div id="center">'+
 		'<a onclick="loadHc();" id="hc">'+
 			'<h1>Hannas Café</h1>'+
-			'<p>Kvinnors berättelser om livet</p>'+
+			'<p>Kvinnor delar med sig om livet</p>'+
 		'</a>'+
 	'</div>'+
 	'<div id="center">'+
 		'<a onclick="loadVgb();" id="vgb">'+
 			'<h1>Vägen genom Bibeln</h1>'+
 			'<p>Bibelutläggning i 1245 program</p>'+
+		'</a>'+
+	'</div>'+
+	'<div id="center">'+
+		'<a onclick="loadHistory();" id="history">'+
+			'<h1>Historik</h1>'+
+			'<p>Senast spelade avsnitt</p>'+
 		'</a>'+
 	'</div>';
 	document.getElementById("content").innerHTML = mainMenu;
@@ -247,10 +254,63 @@ function loadVgb(id){
 	},1);
 }
 
+/* Loads player history into #content */
+function loadHistory(){
+	isMain = false;
+	toTop();
+
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="history" class="headerLogo">Historik</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
+	var header = document.getElementById("header")
+	header.innerHTML = backHeader;
+	header.style["background"] = "#eaeaea";
+  header.style["border-bottom"] = "1px solid #ccc";
+
+	var newList = '<div id="textbox"><p>Här kan du se dina senast spelade program från alla programserier.</p></div>';
+	var history = getHistory();
+	if (history != ""){
+		newList += '<a onclick="clearHistory();" id="back"><h2>Rensa historik</h2></a>';
+		for (var i = history.length - 1; i >= 0; i--){
+			newList += makeLink(history[i]);
+		}
+	}
+	else{
+		newList += '<h2>Historiken är tom</h2>';
+	}
+	document.getElementById("content").innerHTML = newList;
+}
+
 /* returns html for a track */
 function makeLink(track){
-	return '<a title="' + track["title"] + '" onclick="playTrack(\'' + track["url"] + '\',\'' + track["title"] + '\');" class="track"><div class="nr">' + track["nr"] + '.</div><div class="title">' + track["title"] + '</div></a>';
+	return '<a title="' + track["title"] + '" onclick="playTrack(\'' + track["nr"] + '\',\'' + track["title"] + '\',\'' + track["url"] + '\');" class="track"><div class="nr">' + track["nr"] + '.</div><div class="title">' + track["title"] + '</div></a>';
 }
+
+function getHistory(){
+	if(window.localStorage.getItem('history') != null){
+		return JSON.parse(window.localStorage.getItem('history'));
+	}
+	else{
+		return "";
+	}
+}
+
+/* deletes history in local storage */
+function storeHistory(track){
+	var history = getHistory()
+	if(history != ""){
+		history.push(track);
+	}
+	else{
+		history = [track];
+	}
+	window.localStorage.setItem('history', JSON.stringify(history));
+}
+
+/* deletes history tracks from local storage */
+function clearHistory(){
+	window.localStorage.removeItem('history');
+	loadHistory();
+}
+
 
 function loadBible(){
 	isMain = false;
@@ -470,16 +530,18 @@ function loadBible(){
 }
 
 /* puts a track in the #playerBox */
-function playTrack(track, title){
+function playTrack(nr, title, url){
 	resetPlayer();
 	if(navigator.connection.type == Connection.NONE){
     showError();
   }
 	else{
-		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + track + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
+		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
 		document.getElementById("programinfo").innerHTML = title;
 		initPlay(); // start playback
 		showFooter(); // make the player visible
+		var trackObj = {"nr": nr, "title": title, "url": url};
+		storeHistory(trackObj);
 	}
 }
 

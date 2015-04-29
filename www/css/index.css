@@ -124,6 +124,11 @@ a.close {
 		background-size: 90px 72px;
 	}
 
+	#header #history {
+		background: url(../img/history.png) no-repeat center center;
+		background-size: 72px 72px;
+	}
+
 	#header #toTop {
 		position: relative;
 		float: right;
@@ -242,11 +247,11 @@ a.close {
 	}
 
 	#content #center {
-		border-bottom: 1px solid #EAEAEA;
+		border-bottom: 1px solid #eaeaea;
 		width: 100%;
 	}
 
-	#content #omg, #content #hc, #content #vgb {
+	#content #omg, #content #hc, #content #vgb, #content #history {
 		display: block;
 		min-height: 100px;
 		padding-left: 128px;
@@ -254,14 +259,14 @@ a.close {
 		margin: 0 auto;
 	}
 
-	#content #omg h1, #content #hc h1, #content #vgb h1 {
+	#content #omg h1, #content #hc h1, #content #vgb h1, #content #history h1 {
 		padding-top: 26px;
 		line-height: 24px;
 		font-size: 18px;
 		font-weight: normal;
 	}
 
-	#content #omg p, #content #hc p, #content #vgb p {
+	#content #omg p, #content #hc p, #content #vgb p, #content #history p {
 		margin: 0;
 		padding: 0;
 		font-size: 13px;
@@ -282,6 +287,11 @@ a.close {
 	#content #vgb {
 		background: #fafafa url(../img/vgb.png) no-repeat 16px center;
 		background-size: 90px 72px;
+	}
+
+	#content #history {
+		background: #fafafa url(../img/history.png) no-repeat 28px center;
+		background-size: 72px 72px;
 	}
 
 #footer {

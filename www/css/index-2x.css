@@ -52,6 +52,10 @@ a.close {
 		background-size: 180px 144px;
 	}
 
+	#header #history {
+		background-size: 144px 144px;
+	}
+
 	#header #toTop {
 		background-size: 128px 128px;
 		width: 200px;
@@ -99,19 +103,19 @@ a.close {
 		padding-right: 18px;
 	}
 
-	#content #omg, #content #hc, #content #vgb {
+	#content #omg, #content #hc, #content #vgb, #content #history {
 		min-height: 200px;
 		padding-left: 256px;
 		width: 384px;
 	}
 
-	#content #omg h1, #content #hc h1, #content #vgb h1 {
+	#content #omg h1, #content #hc h1, #content #vgb h1, #content #history h1 {
 		padding-top: 52px;
 		line-height: 48px;
 		font-size: 36px;
 	}
 
-	#content #omg p, #content #hc p, #content #vgb p {
+	#content #omg p, #content #hc p, #content #vgb p, #content #history p {
 		font-size: 26px;
 		line-height: 44px;
 	}
@@ -126,6 +130,10 @@ a.close {
 
 	#content #vgb {
 		background-size: 180px 144px;
+	}
+	
+	#content #history {
+		background-size: 144px 144px;
 	}
 
 #footer {
