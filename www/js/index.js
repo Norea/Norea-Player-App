@@ -1,8 +1,8 @@
-var isMain = false;
 var isPlaying = false;
 var program = "";
 var headerHeight = 100;
 var footerHeight = 64;
+var isPage = "";
 
 
 if(document != undefined){
@@ -61,7 +61,7 @@ function getjson(url, content){
 
 /* handles Android backbutton event */
 function backButton(){
-	if(isMain){
+	if(isPage == "main"){
 		if(isPlaying){
 			playpause();
 		}
@@ -74,14 +74,8 @@ function backButton(){
 
 /* loads main menu into #content */
 function loadMenu(){
-	isMain = true;
+	isPage = "main";
 	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") +
-	'<div id="center">'+
-		'<a onclick="loadOmg();" id="omg">'+
-			'<h1>Ögonblick med Gud</h1>'+
-			'<p>Korta andakter på ca. 2 minuter</p>'+
-		'</a>'+
-	'</div>'+
 	'<div id="center">'+
 		'<a onclick="loadHc();" id="hc">'+
 			'<h1>Hannas Café</h1>'+
@@ -92,6 +86,12 @@ function loadMenu(){
 		'<a onclick="loadVgb();" id="vgb">'+
 			'<h1>Vägen genom Bibeln</h1>'+
 			'<p>Bibelutläggning i 1245 program</p>'+
+		'</a>'+
+	'</div>'+
+	'<div id="center">'+
+		'<a onclick="loadOmg();" id="omg">'+
+			'<h1>Ögonblick med Gud</h1>'+
+			'<p>Korta andakter på ca. 2 minuter</p>'+
 		'</a>'+
 	'</div>'+
 	'<div id="center">'+
@@ -116,7 +116,7 @@ function makeHideBox(content, action){
 /* decides if the "to top" button should be changed */
 var showsTopBtn = false;
 function scroll(){
-	if(!isMain){
+	if(isPage!="main"){
 		if(window.scrollY>500){
 			if(!showsTopBtn){ // prevents changing style at every event call
 				showTop();
@@ -149,9 +149,12 @@ function toTop(){
 
 /* Loads "Norea Sverige" info into #content */
 function loadInfo(){
-	isMain = false;
+	isPage = "info";
+	toTop();
 
-	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="norea" class="headerLogo">Om Norea Sverige</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
+	'<h1 id="norea" class="headerLogo">Om Norea Sverige</h1>'+
+	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	var header = document.getElementById("header")
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
@@ -180,10 +183,12 @@ function loadInfo(){
 
 /* Loads "Ögonblick med Gud" info and tracks into #content */
 function loadOmg(){
-	isMain = false;
+	isPage = "omg";
 	toTop();
 
-	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="omg" class="headerLogo">Ögonblick med Gud</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
+	'<h1 id="omg" class="headerLogo">Ögonblick med Gud</h1>'+
+	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	var header = document.getElementById("header")
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
@@ -199,10 +204,12 @@ function loadOmg(){
 
 /* Loads "Hannas Café" info and tracks into #content */
 function loadHc(){
-	isMain = false;
+	isPage = "hc";
 	toTop();
 
-	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="hc" class="headerLogo">Hannas Café</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
+	'<h1 id="hc" class="headerLogo">Hannas Café</h1>'+
+	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	var header = document.getElementById("header")
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
@@ -217,10 +224,13 @@ function loadHc(){
 
 /* Loads "Vägen genom Bibeln" info and tracks into #content */
 function loadVgb(id){
-	isMain = false;
+	isPage = "vgb";
 	toTop();
 
-	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="vgb" class="headerLogo">Vägen genom Bibeln</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a><a onclick="loadBible();" id="bibleBtn">Visa Bibel</a>';
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
+	'<h1 id="vgb" class="headerLogo">Vägen genom Bibeln</h1>'+
+	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>'+
+	'<a onclick="loadBible();" id="bibleBtn">Visa Bibel</a>';
 	var header = document.getElementById("header")
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
@@ -256,10 +266,12 @@ function loadVgb(id){
 
 /* Loads player history into #content */
 function loadHistory(){
-	isMain = false;
+	isPage = "history";
 	toTop();
 
-	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a><h1 id="history" class="headerLogo">Historik</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
+	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
+	'<h1 id="history" class="headerLogo">Historik</h1>'+
+	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	var header = document.getElementById("header")
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
@@ -311,9 +323,8 @@ function clearHistory(){
 	loadHistory();
 }
 
-
 function loadBible(){
-	isMain = false;
+	isPage = "bible";
 	toTop();
 	var backHeader = '<a onclick="loadVgb();" id="back">Tillbaka till VGB</a><h1 id="bibleBtn" class="headerLogo">Bibeln</h1><a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
 	document.getElementById("header").innerHTML = backHeader;
@@ -532,16 +543,14 @@ function loadBible(){
 /* puts a track in the #playerBox */
 function playTrack(nr, title, url){
 	resetPlayer();
-	if(navigator.connection.type == Connection.NONE){
-    showError();
-  }
-	else{
-		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
-		document.getElementById("programinfo").innerHTML = title;
-		initPlay(); // start playback
-		showFooter(); // make the player visible
-		var trackObj = {"nr": nr, "title": title, "url": url};
-		storeHistory(trackObj);
+	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
+	document.getElementById("programinfo").innerHTML = title;
+	initPlay(); // start playback
+	showFooter(); // make the player visible
+	var trackObj = {"nr": nr, "title": title, "url": url};
+	storeHistory(trackObj);
+	if(isPage == "history"){
+		loadHistory();
 	}
 }
 
