@@ -4,7 +4,6 @@ var headerHeight = 100;
 var footerHeight = 64;
 var isPage = "";
 
-
 if(document != undefined){
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
@@ -102,7 +101,7 @@ function loadMenu(){
 	'</div>';
 	document.getElementById("content").innerHTML = mainMenu;
 	var mainHeader = '<a onclick="loadInfo();" id="home">Norea Sverige</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = mainHeader;
 	header.style["background"] = "#82982e";
   header.style["border-bottom"] = "1px solid #774";
@@ -123,7 +122,7 @@ function scroll(){
 			}
 		}
 		else if(showsTopBtn){ // prevents changing style at every event call
-		 	hideTop()
+		 	hideTop();
 		}
 	}
 }
@@ -155,7 +154,7 @@ function loadInfo(){
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
 	'<h1 id="norea" class="headerLogo">Om Norea Sverige</h1>'+
 	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
@@ -189,7 +188,7 @@ function loadOmg(){
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
 	'<h1 id="omg" class="headerLogo">Ögonblick med Gud</h1>'+
 	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
@@ -199,7 +198,6 @@ function loadOmg(){
 		newList += makeLink(program.omg[i]);
 	}
 	document.getElementById("content").innerHTML = newList;
-
 }
 
 /* Loads "Hannas Café" info and tracks into #content */
@@ -210,7 +208,7 @@ function loadHc(){
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
 	'<h1 id="hc" class="headerLogo">Hannas Café</h1>'+
 	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
@@ -231,7 +229,7 @@ function loadVgb(id){
 	'<h1 id="vgb" class="headerLogo">Vägen genom Bibeln</h1>'+
 	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>'+
 	'<a onclick="loadBible();" id="bibleBtn">Visa Bibel</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
@@ -272,7 +270,7 @@ function loadHistory(){
 	var backHeader = '<a onclick="loadMenu();" id="back">Tillbaka till menyn</a>'+
 	'<h1 id="history" class="headerLogo">Historik</h1>'+
 	'<a onclick="toTop();" id="toTop">Tillbaka till toppen</a>';
-	var header = document.getElementById("header")
+	var header = document.getElementById("header");
 	header.innerHTML = backHeader;
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
@@ -307,7 +305,7 @@ function getHistory(){
 
 /* deletes history in local storage */
 function storeHistory(track){
-	var history = getHistory()
+	var history = getHistory();
 	if(history != ""){
 		history.push(track);
 	}
@@ -543,10 +541,10 @@ function loadBible(){
 /* puts a track in the #playerBox */
 function playTrack(nr, title, url){
 	resetPlayer();
-	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="none"></audio>'; // puts the html audio tag into the playerBox
+	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="metadata"></audio>'; // puts the html audio tag into the playerBox
 	document.getElementById("programinfo").innerHTML = title;
-	initPlay(); // start playback
 	showFooter(); // make the player visible
+	initPlay(); // start playback
 	var trackObj = {"nr": nr, "title": title, "url": url};
 	storeHistory(trackObj);
 	if(isPage == "history"){
@@ -577,7 +575,7 @@ function uiListener(){
     if(mouseX>0){
 			moveTo(mouseX);
 		}
-    e.preventDefault()
+    e.preventDefault();
   }, false);
 }
 
@@ -592,32 +590,30 @@ function moveTo(mouseX){
 /* adds event listeners for player events and starts playback */
 function initPlay(){
 	var player = document.getElementById("player");
-
-	// when there is an error
-	player.addEventListener('error', function(){
-		showError();
-	}, false);
+	playpause(); // start initial play
 
 	/* when player updates progress time */
 	player.addEventListener("timeupdate", function(){
 		updateProgress();
 	}, false);
 
-	player.addEventListener("ended", onEnded); // when track ends
+	/* when there is an error */
+	player.addEventListener("error", function(e){
+		showError();
+	}, false);
 
-	playpause(); // start initial play
+	player.addEventListener("ended", onEnded); // when track ends
 }
 
 /* updates progress bar */
 function updateProgress(){
 	var player = document.getElementById("player");
 
-	document.getElementById("played").innerHTML = ms(player.currentTime);
 	document.getElementById("duration").innerHTML = ms(player.duration);
+	document.getElementById("played").innerHTML = ms(player.currentTime);
 
-	var progressBar = document.getElementById("progressBar");
 	var percent = 100*(player.currentTime / player.duration);
-	progressBar.style.width = percent + '%';
+	document.getElementById("progressBar").style.width = percent + '%';
 }
 
 /* returns minutes and seconds */
