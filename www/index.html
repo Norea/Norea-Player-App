@@ -7,20 +7,25 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="./css/index.css" />
         <title>Norea</title>
-		<script src="./js/index.js"></script>
+		<script src="./js/add-data.js?ver=1.01"></script>
+		<script src="./js/bible-data.js?ver=1.01"></script>
+		<script src="./js/index.js?ver=1.01"></script>
 		<script src="cordova.js"></script>
 	</head>
-	<body>
+	<body onload="initOnLoad()">
 		<header id="header">
 		</header>
 		<div id="content">
+			<script>
+				loadMenu();
+			</script>
 		</div>
 		<footer id="footer">
 			<div id="playerBox"></div>
 			<div id="scrubber">
 				<div id="progressBar"></div>
 				<div id="infotext">
-				<div id="programinfo"></div>
+					<div id="programinfo"></div>
 					<div id="time">
 						<div id="played">00:00</div>/<div id="duration">00:00</div>
 					</div>
@@ -32,6 +37,6 @@
 			</div>
 			<a id="closeFooter" class="close" onclick="closeFooter();">Close Footer</a>
 		</footer>
-		<div id="error"><p>Uppkoppling saknas</p><a class="close" onclick="closeError();">Close Error</a></div>
+		<div id="error"><p>No Connection</p><a class="close" onclick="closeError();">Close Error</a></div>
 	</body>
 </html>

@@ -46,6 +46,9 @@ a.close {
 	text-indent: -9999px;
 }
 
+.make-center {
+}
+
 #header {
 	z-index: 2;
 	position: fixed;
@@ -70,8 +73,9 @@ a.close {
 	}
 
 	#header #bibleBtn {
-		position: relative;
-		float: right;
+		position: absolute;
+		right: 120px;
+		top: 0px;
 		background: url(../img/bible.png) no-repeat center center;
 		background-size: 64px 64px;
 		display: block;
@@ -80,73 +84,65 @@ a.close {
 		text-indent: -9999px;
 	}
 
-	#header h1 {
+	#header h1
+		{
 		float: left;
 		width: auto;
 		margin: 0;
 		padding: 0;
-	}
-
-	#header #home {
 		display: block;
-		background: #82982e url(../img/norealogo-vit.png) no-repeat center center;
-		background-size: 219px 64px;
 		width: 100%;
 		height: 100px;
 		text-indent: -9999px;
-	}
+		}
 
-	#header .headerLogo {
+	#header .main-menu 
+		{
 		display: block;
-		text-indent: -9999px;
-		float: right;
-		min-height: 100px;
-		width: 100px;
-	}
+		background: #82982e 
+		}
 
-	#header #norea {
-		background: url(../img/noreaglobe.png) no-repeat center center;
-		background-size: 64px 64px;
-	}
+	#header .main-menu img
+		{
+		height: 64px;
+		padding-top: 18px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    display: block;
+		}
 
-	#header #hc {
-		background: url(../img/hc.png) no-repeat center center;
-		background-size: 72px 72px;
-	}
-
-	#header #omg {
-		background: url(../img/omg.png) no-repeat center center;
-		background-size: 72px 72px;
-	}
-
-	#header #vgb {
-		background: url(../img/vgb.png) no-repeat left center;
-		background-size: 90px 72px;
-	}
-
+	#header .sub-menu
+		{
+		display: block;
+		position: absolute;
+		height: 72px;
+		width: auto;
+		top: 10px;
+		right: 10px;
+		}
+	
 	#header #toTop {
-		position: relative;
-		float: right;
+		position: absolute;
 		background: url(../img/top.png) no-repeat center center;
 		background-size: 64px 64px;
-		display: block;
 		width: 100px;
 		height: 100px;
 		text-indent: -9999px;
 		display: none;
+		top: 0px;
+		right: 5px;
 	}
 
-
-#content {
+#content
+	{
 	z-index: 1;
 	clear: left;
-	float: left;
 	width: 100%;
 	/* compensate for header and footer */
 	margin-top: 100px;
 	margin-bottom: 0;
 	overflow: hidden;
-}
+	}
 
 	#content #hidebox {
 		display: block;
@@ -183,16 +179,44 @@ a.close {
 		background: linear-gradient(to top, #fafafa 0%, rgba(250, 250, 250, 0) 100%) repeat scroll 0% 0% transparent;
 	}
 
-	#content p {
+	#content .menu
+		{
+		display: block;
+		min-height: 80px;
+		border-bottom: 1px solid #eaeaea;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		clear: both;
+		}
+
+	#content .menu h1 {
+		padding-left: 128px;
+		padding-top: 16px;
+		line-height: 24px;
+		font-size: 18px;
+		font-weight: normal;
+	}
+
+	#content .menu p {
+		margin: 0;
+		padding-left: 128px;
+		font-size: 13px;
+		line-height: 22px;
+		color: #a5a5a5;
+	}
+
+	#content p
+		{
 		margin: 0;
 		margin-bottom: 18px;
 		padding: 0 18px;
 		line-height: 1.5em;
-	}
+		}
 
-	#content a {
+	#content a
+		{
 		text-decoration: none;
-	}
+		}
 
 	#content h2 {
 		clear: left;
@@ -205,11 +229,13 @@ a.close {
 		line-height: 27px;
 		text-transform: uppercase;
 		padding: 0;
+		margin: 0;
 		box-sizing: border-box;
 		text-align: center;
 	}
 
-	#content .track {
+	#content .track
+		{
 		clear: left;
 		float: left;
 		width: 100%;
@@ -221,16 +247,17 @@ a.close {
 		padding: 0;
 		padding-left: 18px;
 		box-sizing: border-box;
-		clear: left;
-	}
+		}
 
-	#content .nr {
+	#content .nr
+		{
 		color: #a5a5a5;
 		float: left;
 		padding-right: 9px;
-	}
+		}
 
-	#content .title {
+	#content .title
+		{
 		position: relative;
 		top: 0px;
 		left: 0px;
@@ -239,49 +266,25 @@ a.close {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		padding-right: 9px;
-	}
+		}
 
-	#content #omg, #content #hc, #content #vgb {
-		display: block;
-		min-height: 100px;
-		padding-left: 128px;
-		border-bottom: 1px solid #eaeaea;
-	}
-
-	#content #omg h1, #content #hc h1, #content #vgb h1 {
-		padding-top: 26px;
-		line-height: 24px;
-		font-size: 18px;
-		font-weight: normal;
-	}
-
-	#content #omg p, #content #hc p, #content #vgb p {
-		margin: 0;
-		padding: 0;
-		font-size: 13px;
-		line-height: 22px;
-		color: #a5a5a5;
-	}
-
-	#content #omg {
-		background: #fafafa url(../img/omg.png) no-repeat 28px center;
-		background-size: 72px 72px;
-	}
-
-	#content #hc {
-		background: #fafafa url(../img/hc.png) no-repeat 28px center;
-		background-size: 72px 72px;
-	}
-
-	#content #vgb {
-		background: #fafafa url(../img/vgb.png) no-repeat 16px center;
-		background-size: 90px 72px;
-	}
+	#content img
+		{
+			background: no-repeat center center;
+			height: 72px;
+			width: auto;
+			padding-top: 4px;
+			padding-left: 28px;
+			float: left;
+		}
+	#content .l4m_ser_swe_vgb img
+		{
+			padding-left: 16px;
+		}
 
 #footer {
 	position: absolute;
 	right: 0px;
-	left: 64px;
 	bottom: 0px;
 	font-size: 18px;
 	margin: 0;
@@ -290,108 +293,130 @@ a.close {
 	bottom: 0px;
 	left: 0px;
 	height: 64px;
-	margin-left: 64px;
 	cursor: pointer;
 	display: none;
 }
 
-#footer audio {
+#footer audio
+	{
 	position: absolute;
 	left: -1px;
-}
+	}
 
-#footer #play-pause {
-	width: 64px;
+#footer #play-pause
+	{
 	height: 64px;
 	padding: 8px;
-	margin: -64px 0px 0px -64px;
 	overflow: hidden;
 	box-sizing: border-box;
 	width: 64px;
-	position: relative;
-	float: left;
+	position: absolute;
+	bottom: 0px;
 	background: #eaeaea;
 	border-top: 1px solid #dbdbdb;
-}
+	}
 
 	#footer #closeFooter {
 		display: none;
 	}
 
-	#footer p {
+	#footer p
+		{
 		display: none;
 		width: 48px;
 		height: 48px;
 		margin: 0px;
 		cursor: pointer;
-	}
+		}
 
-	#footer #play {
+	#footer #play
+		{
 		background: url(../img/play-pause.png) no-repeat center top;
 		background-size: 48px 96px;
 		width: 48px;
 		height: 48px;
 		display: none;
-	}
+		}
 
-	#footer #pause {
+	#footer #pause
+		{
 		background: url(../img/play-pause.png) no-repeat center bottom;
 		background-size: 48px 96px;
 		display: block;
 		width: 48px;
 		height: 48px;
-	}
+		}
 
-#footer #scrubber {
+#footer #scrubber
+	{
 	position: relative;
 	display: block;
-	width: 100%;
 	height: 64px;
 	margin: 0;
+	margin-left: 64px;
 	overflow: hidden;
 	background: #82982e;
 }
 
-	#footer #progressBar {
+	#footer #info-text
+		{
+		margin-left: -64px;
+		width: 100%;
+		}
+	#footer #progressBar
+		{
 		position: absolute;
 		top: 0px;
-		left: 0px;
 		height: 64px;
 		width: 0px;
 		background: #bccc7d;
 		z-index: 1;
 		border-right: 1px solid #efb;
-	}
+		}
 
-	#footer #infotext {
-		display: table;
-		table-layout: fixed;
-		width: 100%;
-	}
+		#footer .audio-title,
+		#footer .audio-descr {
+			padding-left: 5px;
+		}
+
+		#footer .ser-title {
+			line-height: 16px;
+		}
+
+		#footer .ser-title {
+			visibility: hidden;
+		}
+
+		#footer .audio-descr {
+			font-size: 11px;
+		}
+
+		#footer .audio-descr {
+  			overflow: hidden;
+			text-overflow: ellipsis;
+			padding-right: 180px;
+		}
 
 		#footer #programinfo {
-			line-height: 64px;
-			padding: 0px 10px;
+			float: left;
+			padding: 5px 10px;
 			color: #fff;
 			z-index: 2;
 			display: table-cell;
 			position: relative;
 			text-align: left;
-			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 
 		#footer #time {
+			position: absolute;
+			right: 15px;
 			line-height: 64px;
-			padding-right: 10px;
 			color: #442;
 			z-index: 2;
 			display: table-cell;
-			position: relative;
-			text-align: center;
-			width: 110px;
-			z-index: 2;
+			text-align: left;
 		}
 
 			#footer #time #played {
@@ -407,7 +432,9 @@ a.close {
 				display: inline;
 			}
 
-#error {
+
+#error
+	{
 	position: absolute;
 	right: 0px;
 	left: 0px;
@@ -422,21 +449,30 @@ a.close {
 	cursor: pointer;
 	display: none;
 	background: #e66;
-}
+	}
 
-	#error p {
+	#error p
+		{
 		float:left;
 		margin: 20px;
 		color: #fff;
 		display: block;
-	}
+		}
+
+	#error a
+		{
+		float:right;
+		margin: 20px;
+		color: #fff;
+		display: block;
+		}
 
 #bible {
 	padding: 18px;
 	padding-bottom: 0;
 }
 
-#bible #GT:after, #bible #NT:after{
+#bible #OT:after, #bible #NT:after{
 	content: "";
 	visibility: hidden;
 	display: block;
@@ -448,7 +484,7 @@ a.close {
 #bible h3{
 	clear: both;
 	text-align: center;
-	margin-bottom: 10px;
+	margin: 0 0 10px 0;
 	text-transform: uppercase;
 }
 
