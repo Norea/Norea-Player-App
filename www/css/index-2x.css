@@ -131,9 +131,13 @@ a.close {
 	#content #vgb {
 		background-size: 180px 144px;
 	}
-	
+
 	#content #history {
 		background-size: 144px 144px;
+	}
+
+	#content #sms {
+		display: none;
 	}
 
 #footer {

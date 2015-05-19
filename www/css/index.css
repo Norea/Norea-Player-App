@@ -251,7 +251,7 @@ a.close {
 		width: 100%;
 	}
 
-	#content #omg, #content #hc, #content #vgb, #content #history {
+	#content #omg, #content #hc, #content #vgb, #content #history, #content #sms {
 		display: block;
 		min-height: 100px;
 		padding-left: 128px;
@@ -259,14 +259,14 @@ a.close {
 		margin: 0 auto;
 	}
 
-	#content #omg h1, #content #hc h1, #content #vgb h1, #content #history h1 {
+	#content #omg h1, #content #hc h1, #content #vgb h1, #content #history h1, #content #sms h1 {
 		padding-top: 26px;
 		line-height: 24px;
 		font-size: 18px;
 		font-weight: normal;
 	}
 
-	#content #omg p, #content #hc p, #content #vgb p, #content #history p {
+	#content #omg p, #content #hc p, #content #vgb p, #content #history p, #content #sms p {
 		margin: 0;
 		padding: 0;
 		font-size: 13px;
@@ -292,6 +292,15 @@ a.close {
 	#content #history {
 		background: #fafafa url(../img/history.png) no-repeat 28px center;
 		background-size: 72px 72px;
+	}
+
+	#content #sms {
+		background: #fafafa url(../img/sms.png) no-repeat 28px center;
+		background-size: 72px 72px;
+	}
+
+	#content a h1 {
+		color: #555;
 	}
 
 #footer {

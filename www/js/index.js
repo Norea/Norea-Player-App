@@ -98,6 +98,12 @@ function loadMenu(){
 			'<h1>Historik</h1>'+
 			'<p>Senast spelade avsnitt</p>'+
 		'</a>'+
+	'</div>'+
+	'<div id="center">'+
+		'<a href="sms:" id="sms">'+
+			'<h1>Tipsa en vän!</h1>'+
+			'<p>Tipsa om Noreas app via SMS</p>'+
+		'</a>'+
 	'</div>';
 	document.getElementById("content").innerHTML = mainMenu;
 	var mainHeader = '<a onclick="loadInfo();" id="home">Norea Sverige</a>';
