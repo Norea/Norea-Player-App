@@ -547,14 +547,19 @@ function loadBible(){
 /* puts a track in the #playerBox */
 function playTrack(nr, title, url){
 	resetPlayer();
-	document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="metadata"></audio>'; // puts the html audio tag into the playerBox
-	document.getElementById("programinfo").innerHTML = title;
-	showFooter(); // make the player visible
-	initPlay(); // start playback
-	var trackObj = {"nr": nr, "title": title, "url": url};
-	storeHistory(trackObj);
-	if(isPage == "history"){
-		loadHistory();
+	if(navigator.connection.type == Connection.NONE){
+    showError();
+  }
+	else{
+		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="metadata" type="audio/mpeg"></audio>'; // puts the html audio tag into the playerBox
+		initPlay(); // start playback
+		showFooter(); // make the player visible
+		document.getElementById("programinfo").innerHTML = title;
+		var trackObj = {"nr": nr, "title": title, "url": url};
+		storeHistory(trackObj);
+		if(isPage == "history"){
+			loadHistory();
+		}
 	}
 }
 
@@ -579,7 +584,16 @@ function uiListener(){
   scrubber.addEventListener("touchmove", function(e){
     var mouseX = e.changedTouches[0].clientX-footerHeight;
     if(mouseX>0){
-			moveTo(mouseX);
+			// pausing on scrubb makes it snappier
+			if(isPlaying){
+				player = document.getElementById("player");
+				player.pause();
+				moveTo(mouseX);
+				player.play();
+			}
+			else{
+				moveTo(mouseX);
+			}
 		}
     e.preventDefault();
   }, false);
@@ -595,8 +609,9 @@ function moveTo(mouseX){
 
 /* adds event listeners for player events and starts playback */
 function initPlay(){
-	var player = document.getElementById("player");
 	playpause(); // start initial play
+
+	var player = document.getElementById("player");
 
 	/* when player updates progress time */
 	player.addEventListener("timeupdate", function(){
