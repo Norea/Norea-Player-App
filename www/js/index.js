@@ -39,7 +39,7 @@ if(document != undefined){
 /* loads main menu */
 function loadMenu(){
 	isPage = "main";
-	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") +
+	var mainMenu = makeHideBox("<p><b>Norea Sverige</b> är en fristående missions&shy;organisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.</p>", "loadInfo()") +
 	'<div id="center">'+
 		'<a onclick="loadHc();" id="hc">'+
 			'<h1>Hannas Café</h1>'+
@@ -92,7 +92,7 @@ function loadInfo(){
   header.style["border-bottom"] = "1px solid #ccc";
 
 	var info = '<div id="textbox"><p>'+
-	'<b>Norea Sverige</b> är en fristående missionsorganisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.'+
+	'<b>Norea Sverige</b> är en fristående missions&shy;organisation som vill sprida budskapet om Jesus med hjälp av media. Du kan lyssna till våra programserier via radio, internet eller direkt i din mobil genom vår app. Programmen går också att beställa på CD-skivor eller USB-minne.'+
 	'</p><p>'+
 	'För att nå så många som möjligt är appen gratis, men allt har ju en kostnad... Vill du vara med och bidra till utvecklingen av nya programserier? Swisha en gåva, sätt in pengar på vårt PlusGiro-konto eller ge med kort på vår hemsida!'+
 	'</p><p>'+
@@ -126,7 +126,7 @@ function loadHc(){
   header.style["border-bottom"] = "1px solid #ccc";
 
 	var newContent = '<div id="textbox"><p><b>Hannas Café</b> är en programserie där en mängd kvinnor delar med sig av olika livssituationer som drabbat dem. Det gemensamma för alla vittnesbörd är upplevelsen av hur Gud, mitt i all hopplöshet, grep in och gjorde det trasiga helt.</p></div>';
-	for(var i=0; i<program.hc.length; i++){
+	for(var i=0,j=program.hc.length; i<j; i++){
 		newContent += makeLink(program.hc[i]);
 	}
 	document.getElementById("content").innerHTML = newContent;
@@ -151,19 +151,19 @@ function loadVgb(id){
 	/* loads just the first book and draws it */
 	newContent += "<h2 id='" + program.vgb[0].heading + "'>" + program.vgb[0].heading + "</h2>";
 	newContent += "<ul>";
-	for(var j=0; j<program.vgb[0].track.length; j++){
-		newContent += makeLink(program.vgb[0].track[j]);
+	for(var i=0,j=program.vgb[0].track.length; i<j; i++){
+		newContent += makeLink(program.vgb[0].track[i]);
 	}
 	newContent += "</ul>";
 	document.getElementById("content").innerHTML = newContent;
 
 	/* loads the rest of the books */
 	setTimeout(function(){
-		for(var i=1; i<program.vgb.length; i++){
+		for(var i=1,j=program.vgb.length; i<j; i++){
 			newContent += "<h2 id='" + program.vgb[i].heading + "'>" + program.vgb[i].heading + "</h2>";
 			newContent += "<ul>";
-			for(var j=0; j<program.vgb[i].track.length; j++){
-				newContent += makeLink(program.vgb[i].track[j]);
+			for(var k=0,l=program.vgb[i].track.length; k<l; k++){
+				newContent += makeLink(program.vgb[i].track[k]);
 			}
 			newContent += "</ul>";
 		}
@@ -188,7 +188,7 @@ function loadOmg(){
   header.style["border-bottom"] = "1px solid #ccc";
 
 	var newContent = '<div id="textbox"><p><b>Ögonblick med Gud</b> är en programserie med små korta andakter som kan fungera som en hjälp att förstå mer om Guds kärlek. Oavsett om du har hittat regelbundenhet i ditt andaktsliv eller om du fortfarande kämpar kan det här programmet hjälpa dig att ta tid för Gud.</p></div>';
-	for(var i=0; i<program.omg.length; i++){
+	for(var i=0,j=program.omg.length; i<j; i++){
 		newContent += makeLink(program.omg[i]);
 	}
 	document.getElementById("content").innerHTML = newContent;
