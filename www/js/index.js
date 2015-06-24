@@ -207,7 +207,7 @@ function loadHistory(){
 	header.style["background"] = "#eaeaea";
   header.style["border-bottom"] = "1px solid #ccc";
 
-	var newContent = '<div id="textbox"><p>Här kan du se dina senast spelade program från alla programserier.</p></div>';
+	var newContent = '<div id="textbox"><p>Här kan du se dina 100 senast spelade program från alla programserier.</p></div>';
 	var history = getHistory();
 	if (history != ""){
 		newContent += '<a onclick="clearHistory();" id="back"><h2>Rensa historik</h2></a>';
@@ -528,6 +528,9 @@ function moveTimeTo(mouseX){
 function storeHistory(track){
 	var history = getHistory();
 	if(history != ""){
+		if(history.length > 99){
+			history.shift();
+		}
 		history.push(track);
 	}
 	else{
