@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.noreasverige.norea" version="15.5.19" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.noreasverige.norea" version="16.6.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Norea</name>
     <description>
         En spelare för Norea Sveriges programserier.
@@ -12,8 +12,9 @@
     <access origin="sms:*" launch-external="yes"/>
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="false"/>
+    <preference name="FadeSplashScreenDuration" value="500"/>
     <preference name="AutoHideSplashScreen" value="false" />
-    <preference name="auto-hide-splash-screen" value="false" />
     <preference name="exit-on-suspend" value="false" />
     <platform name="ios">
       <icon src="res/ios/icon.png" width="57" height="57" />

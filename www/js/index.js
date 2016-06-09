@@ -548,8 +548,8 @@ function clearHistory(){
 /* puts a track in the player and plays it */
 function playTrack(nr, title, url){
 	resetPlayer();
-	if(navigator.connection.type == Connection.NONE){
-    showError();
+	if(navigator.network.connection.type == Connection.NONE){
+    showError("Uppkoppling saknas");
   }
 	else{
 		document.getElementById("playerBox").innerHTML = '<audio id="player" src="' + url + '" preload="metadata" type="audio/mpeg"></audio>'; // puts the html audio tag into the playerBox
@@ -627,7 +627,8 @@ function closeFooter(){
 }
 
 /* shows the error message */
-function showError(){
+function showError(text){
+	document.getElementById("errorText").innerHTML = text;                         // changes the error message
 	document.getElementById("content").style["margin-bottom"] = footerHeight+"px"; // adds extra margin at the bottom
 	document.getElementById("footer").style["display"] = "none";                   // hides footer containing the player
 	document.getElementById("error").style["display"] = "block";                   // shows error message
@@ -684,7 +685,23 @@ function addPlaybackListener(){
 
 	/* when there is an error */
 	player.addEventListener("error", function(e){
-		showError();
+		switch (e.target.error.code) {
+			case e.target.error.MEDIA_ERR_ABORTED:
+				showError("Uppspelningen avbröts");
+				break;
+			case e.target.error.MEDIA_ERR_NETWORK:
+				showError("Nätverksfel");
+				break;
+			case e.target.error.MEDIA_ERR_DECODE:
+				showError("Kunde inte avkoda");
+				break;
+			case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+				showError("Källan stöds inte");
+				break;
+			default:
+				showError("Fel vid uppspelning");
+				break;
+		}
 	}, false);
 
 	player.addEventListener("ended", onEnded); // when track ends
